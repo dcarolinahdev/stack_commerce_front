@@ -1,14 +1,17 @@
-import { useState } from 'react'
+import { RouterProvider } from 'react-router-dom'
 import './App.css'
+import router from './pages/router'
+// import { Provider } from 'react-redux'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
-    <div className='flex'>
-      <h1>Stack Commerce</h1>
-      <div>Technology</div>
-    </div>
+  
+  <RouterProvider router={router}/>
+  
   )
 }
 
