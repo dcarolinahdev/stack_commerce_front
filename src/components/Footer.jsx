@@ -4,7 +4,7 @@ import { HiMail } from "react-icons/hi"
 
 export default function Footer() {
   return (
-    <div className='flex flex-col justify-center px-12 py-10 gap-6 bg-t_background text-t_main'>
+    <footer className='flex flex-col justify-center px-12 py-10 gap-6 bg-t_background text-t_main'>
 
         <div className='flex items-center justify-between'>
             <span className="text-[24px]">Contact us</span>
@@ -26,6 +26,6 @@ export default function Footer() {
             © 2023 Team Yellow™.
         </span>
 
-    </div>
+    </footer>
   )
 }
