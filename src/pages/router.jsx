@@ -2,6 +2,7 @@ import { createBrowserRouter, redirect } from "react-router-dom";
 import Main from "../layouts/Main";
 import Index from "./Index";
 import Admin from "./Admin";
+import Cart from "./Cart";
 
 const router = createBrowserRouter([
     {
@@ -11,7 +12,7 @@ const router = createBrowserRouter([
             {path:"/", element:<Index/>},
             { path: "/index", element: <Index /> },
             { path: "/home", element: <Index /> },
-
+            { path: "/cart", element: <Cart /> },
             { path: "/admin", element: <Admin /> },
 
         ]
