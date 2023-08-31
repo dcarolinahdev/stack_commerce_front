@@ -3,6 +3,7 @@ import Main from "../layouts/Main";
 import Index from "./Index";
 import Singln from "../pages/Singln.jsx";
 import Resgister from "../pages/Resgister.jsx"
+import Cart from "./Cart";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
             { path: "/home", element: <Index /> },
             { path: '/register', element: <Resgister />},
             { path: '/singin', element: <Singln/> },
+            { path: "/cart", element: <Cart /> },
         ]
     }
 ])
