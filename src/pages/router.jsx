@@ -1,6 +1,7 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 import Main from "../layouts/Main";
 import Index from "./Index";
+import Admin from "./Admin";
 
 const router = createBrowserRouter([
     {
@@ -10,6 +11,8 @@ const router = createBrowserRouter([
             {path:"/", element:<Index/>},
             { path: "/index", element: <Index /> },
             { path: "/home", element: <Index /> },
+
+            { path: "/admin", element: <Admin /> },
 
         ]
     }
