@@ -3,14 +3,14 @@ import { Link as Anchor, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
 
-const SingIn = () => {
+const SignIn = () => {
 
   const navigate = useNavigate();
   const email = useRef()
   const password = useRef()
  
 
-  const SingIn = async ()=>{
+  const signIn = async ()=>{
 
     let data = {
       email: email.current.value?.trim(),
@@ -24,7 +24,7 @@ const SingIn = () => {
         icon: 'success',
         text: 'are you registered !'
       });
-      navigate('/singin');
+      navigate('/signIn');
     } catch (error) {
       Swal.fire({
         icon: 'error',
@@ -66,7 +66,7 @@ const SingIn = () => {
             className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-xl text-white rounded-lg bg-gradient-to-r from-[#4338CA] to-[#4338CA]"
             type="button"
             value="Login In"
-            onClick={SingIn}
+            onClick={signIn}
           />
           <div className="relative">
             <input
@@ -117,4 +117,4 @@ const SingIn = () => {
   );
 };
 
-export default SingIn;
+export default SignIn;

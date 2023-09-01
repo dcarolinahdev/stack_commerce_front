@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import Index from "./Index";
-import Singln from "../pages/Singln.jsx";
-import Resgister from "../pages/Resgister.jsx";
+import SignIn from "../pages/Signln"
+import Register from "./Register.jsx"
+import NotAllowed from "./NotAllowed";
 import Cart from "./Cart";
-import Category from "./Category";
-import Admin from "./Admin"; // Mantienes esta importación
+import Category from "./category";
+import Admin from "./Admin";
 
 const router = createBrowserRouter([
     {
@@ -15,10 +16,11 @@ const router = createBrowserRouter([
             { path: "/", element: <Index /> },
             { path: "/index", element: <Index /> },
             { path: "/home", element: <Index /> },
-            { path: '/register', element: <Resgister /> },
-            { path: '/singin', element: <Singln /> },
-            { path: "/cart", element: <Cart /> },
-            { path: "/category", element: <Category /> },
+            { path: '/register', element: <Register />},
+            { path: '/signIn', element: <SignIn/> },
+            { path:'/not-allowed',element: <NotAllowed />},
+            { path: '/cart', element: <Cart /> },
+            { path: '/category', element: <Category/> },
             { path: "/admin", element: <Admin /> },
         ]
     }

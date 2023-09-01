@@ -3,7 +3,7 @@ import { Link as Anchor, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
 
-const Resgister = () => {
+const Register = () => {
 
   const navigate = useNavigate();
   const email = useRef()
@@ -136,4 +136,4 @@ const Resgister = () => {
   );
 };
 
-export default Resgister;
+export default Register;
