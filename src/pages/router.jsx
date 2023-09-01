@@ -4,6 +4,7 @@ import Index from "./Index";
 import Singln from "../pages/Singln.jsx";
 import Resgister from "../pages/Resgister.jsx";
 import Cart from "./Cart";
+import Category from "./Category";
 import Admin from "./Admin"; // Mantienes esta importación
 
 const router = createBrowserRouter([
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
             { path: '/register', element: <Resgister /> },
             { path: '/singin', element: <Singln /> },
             { path: "/cart", element: <Cart /> },
-            { path: "/admin", element: <Admin /> }, // Mantienes esta ruta
+            { path: "/category", element: <Category /> },
+            { path: "/admin", element: <Admin /> },
         ]
     }
 ]);
