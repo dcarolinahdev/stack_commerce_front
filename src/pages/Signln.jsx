@@ -8,14 +8,13 @@ const SignIn = () => {
   const navigate = useNavigate();
   const email = useRef()
   const password = useRef()
- 
+
 
   const signIn = async ()=>{
 
     let data = {
       email: email.current.value?.trim(),
       password: password.current.value?.trim(),
-      
      }
     //  console.log(data);
      try {
@@ -32,7 +31,6 @@ const SignIn = () => {
         html: error.response.data.messages.map(each=>`<p>${each}</p>`).join('')
       });
     }
-    
   }
 
 
@@ -40,9 +38,8 @@ const SignIn = () => {
   return (
     <main className="flex w-full min-h-screen items-center justify-between">
       <div className="flex flex-col md:absolute md:top-0 md:right-[50%] justify-center items-center h-screen w-full md:w-[50%]">
-      <img src="../../src/assets/images/logo23.png" alt="frame" className="w-[160px]" />
+      <img src="/assets/logo23.png" alt="frame" className="w-[160px]" />
         <p className="font-semibold text-[18px] mb-[2px] text-center p-2">
-        
         </p>
         <form className="flex flex-col my-[2px]">
           <input
@@ -61,7 +58,6 @@ const SignIn = () => {
             placeholder="Password"
             ref={password}
           />
-          
           <input
             className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-xl text-white rounded-lg bg-gradient-to-r from-[#4338CA] to-[#4338CA]"
             type="button"
@@ -77,7 +73,7 @@ const SignIn = () => {
               placeholder="Continue in with Google"
             />
             <img
-              src="../../src/assets/images/Google.png"
+              src="/assets/Google.png"
               alt="google"
               className="absolute right-[320px] top-[24px] w-[22px] hidden lg:block"
             />
@@ -91,7 +87,7 @@ const SignIn = () => {
               placeholder="Continue with Apple"
             />
             <img
-              src="../../src/assets/images/iphone-logo.png"
+              src="/assets/iphone-logo.png"
               alt="Apple"
               className="absolute right-[320px] top-[24px] w-[22px] hidden lg:block"
             />
@@ -110,7 +106,7 @@ const SignIn = () => {
       </div>
       <img
         className="hidden md:block md:absolute md:top-0 md:right-0 h-screen w-[50%] object-cover"
-        src="../../src/assets/images/istockphoto-523788889-612x612.jpg"
+        src="/assets/istockphoto-523788889-612x612.jpg"
         alt="register"
       />
     </main>
