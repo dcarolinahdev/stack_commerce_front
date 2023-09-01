@@ -9,7 +9,6 @@ const Register = () => {
   const email = useRef()
   const photo = useRef()
   const password = useRef()
- 
 
   const register = async ()=>{
 
@@ -33,7 +32,6 @@ const Register = () => {
         html: error.response.data.messages.map(each=>`<p>${each}</p>`).join('')
       });
     }
-    
   }
 
 
@@ -41,9 +39,9 @@ const Register = () => {
   return (
     <main className="flex w-full min-h-screen items-center justify-between">
       <div className="flex flex-col md:absolute md:top-0 md:right-[50%] justify-center items-center h-screen w-full md:w-[50%]">
-      <img src="../../src/assets/images/logo23.png" alt="frame" className="w-[160px]" />
+      <img src="/assets/logo23.png" alt="frame" className="w-[160px]" />
         <p className="font-semibold text-[12px] mb-[2px] text-center p-2">
-        Enjoy Free Shipping on stack commerce! 
+        Enjoy Free Shipping on stack commerce!
         </p>
         <p className="font-semibold text-[12px] mb-[10px] text-center p-1">For buyers, shop at ease and enjoy lower prices for your purchases.</p>
         <form className="flex flex-col my-[2px]">
@@ -96,7 +94,7 @@ const Register = () => {
               placeholder="Sign in with Google"
             />
             <img
-              src="../../src/assets/images/Google.png"
+              src="/assets/Google.png"
               alt="google"
               className="absolute right-[310px] top-[24px] w-[22px] hidden lg:block"
             />
@@ -110,7 +108,7 @@ const Register = () => {
               placeholder="Sign in with Apple"
             />
             <img
-              src="../../src/assets/images/iphone-logo.png"
+              src="/assets/iphone-logo.png"
               alt="Apple"
               className="absolute right-[310px] top-[24px] w-[22px] hidden lg:block"
             />
@@ -129,7 +127,7 @@ const Register = () => {
       </div>
       <img
         className="hidden md:block md:absolute md:top-0 md:right-0 h-screen w-[50%] object-cover"
-        src="../../src/assets/images/ai-robot.png"
+        src="/assets/ai-robot.png"
         alt="register"
       />
     </main>
