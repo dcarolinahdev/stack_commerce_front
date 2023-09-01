@@ -5,7 +5,7 @@ import SignIn from "../pages/Signln"
 import Register from "./Register.jsx"
 import NotAllowed from "./NotAllowed";
 import Cart from "./Cart";
-import Category from "./category";
+import Category from "./Category";
 import Admin from "./Admin";
 
 const router = createBrowserRouter([
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
             { path: "/home", element: <Index /> },
             { path: '/register', element: <Register />},
             { path: '/signIn', element: <SignIn/> },
-            { path:'/not-allowed',element: <NotAllowed />},
+            { path: '/not-allowed', element: <NotAllowed />},
             { path: '/cart', element: <Cart /> },
             { path: '/category', element: <Category/> },
             { path: "/admin", element: <Admin /> },
