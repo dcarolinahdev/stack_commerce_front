@@ -7,22 +7,22 @@ import {
 
 const Cart = () => {
   return (
-    <>
-      <section className="bg-white dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+    <div className="pt-4">
+      <section className="">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
             Shopping Cart
           </h1>
-          <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">
-          The best way to predict the future is to invent it 
+          <p className="mb-0 text-lg font-normal lg:text-xl sm:px-16 lg:px-48">
+          The best way to predict the future is to invent it
           </p>
           <form className="w-full max-w-md mx-auto"></form>
         </div>
-        <div className="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0"></div>
       </section>
 
-      <div className="m-7 lg:m-24">
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg  ">
+      <div className="mx-7 lg:mx-24 mb-7 lg:mb-24">
+
+        <div className="relative overflow-x-auto shadow-md sm:rounded-t-lg">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -85,7 +85,8 @@ const Cart = () => {
             </tbody>
           </table>
         </div>
-        <div className="relative overflow-x-auto  ">
+
+        <div className="relative overflow-x-auto">
           <table className="w-full  text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -97,7 +98,7 @@ const Cart = () => {
             </thead>
           </table>
         </div>
-        <div className="relative overflow-x-auto   ">
+        <div className="relative overflow-x-auto sm:rounded-b-lg">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -122,7 +123,7 @@ const Cart = () => {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
