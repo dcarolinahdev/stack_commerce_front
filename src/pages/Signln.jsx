@@ -4,6 +4,7 @@ import { useRef } from "react";
 import apiUrl from "../api/ApiUrl";
 import Swal from "sweetalert2";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -26,9 +27,15 @@ const SignIn = () => {
         Swal.fire({
           icon: "success",
           text: "Welcome to StackCommerce !",
-          timer: 2000,
+          timer: 1500,
+          allowOutsideClick: false,
+          showConfirmButton: false,
         });
+
         navigate("/");
+        setTimeout(() => {
+          window.location.replace("/");
+        }, 1500);
       }
     } catch (error) {
       Swal.fire({
@@ -42,9 +49,9 @@ const SignIn = () => {
   };
 
   return (
-    <main className="flex w-full min-h-screen items-center justify-between">
-      <div className="flex flex-col md:absolute md:top-0 md:right-[50%] justify-center items-center h-screen w-full md:w-[50%]">
-        <img src="/assets/logo23.png" alt="frame" className="w-[160px]" />
+    <main className="flex bg-t_main w-screen min-h-screen items-center justify-between">
+      <div className="flex flex-col md:top-0 md:right-[50%] items-center h-screen w-screen md:w-[50%]">
+        <img src="/assets/logo23.png" alt="frame" className="mt-4 w-[160px]" />
         <p className="font-semibold text-[18px] mb-[2px] text-center p-2"></p>
         <form className="flex flex-col my-[2px]">
           <input
@@ -64,9 +71,9 @@ const SignIn = () => {
             ref={password}
           />
           <input
-            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-xl text-white rounded-lg bg-gradient-to-r from-[#4338CA] to-[#4338CA]"
+            className="w-[260px] cursor-pointer md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-xl text-white rounded-lg bg-gradient-to-r bg-t_background"
             type="button"
-            value="Login In"
+            value="Sign In"
             onClick={signIn}
           />
           <div className="relative">
@@ -107,7 +114,7 @@ const SignIn = () => {
         </p>
       </div>
       <img
-        className="hidden md:block md:absolute md:top-0 md:right-0 h-screen w-[50%] object-cover"
+        className="hidden md:block md:top-0 md:right-0 h-screen w-[50%] object-cover"
         src="/assets/istockphoto-523788889-612x612.jpg"
         alt="register"
       />

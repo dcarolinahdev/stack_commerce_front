@@ -1,49 +1,54 @@
 import React from "react";
 import { Link as Anchor, useNavigate } from "react-router-dom";
 import { useRef } from "react";
-
+import Swal from "sweetalert2";
+import axios from "axios";
+import apiUrl from "../api/ApiUrl";
 
 const Register = () => {
-
   const navigate = useNavigate();
-  const email = useRef()
-  const photo = useRef()
-  const password = useRef()
+  const email = useRef();
+  const photo = useRef();
+  const password = useRef();
 
-  const register = async ()=>{
-
+  const register = async () => {
     let data = {
       email: email.current.value?.trim(),
       password: password.current.value?.trim(),
-      photo: photo.current.value?.trim()
-     }
-    //  console.log(data);
-     try {
-      await axios.post(apiUrl + '/auth/register', data)
-      Swal.fire({
-        icon: 'success',
-        text: 'are you registered !'
-      });
-      navigate('/singin');
+      photo: photo.current.value?.trim(),
+    };
+    try {
+      let newUser = await axios.post(apiUrl + "/auth/signup", data);
+
+      if (newUser) {
+        Swal.fire({
+          icon: "success",
+          html: `<p>Account User Registered!</p>`,
+          timer: 2000,
+        });
+        navigate("/signin");
+      }
     } catch (error) {
       Swal.fire({
-        icon: 'error',
-        text: '¡Sing up!',
-        html: error.response.data.messages.map(each=>`<p>${each}</p>`).join('')
+        icon: "info",
+        text: "¡Sign Up Failed!",
+        html: error.response.data.messages
+          .map((each) => `<p>${each}</p>`)
+          .join(""),
       });
     }
-  }
-
-
+  };
 
   return (
     <main className="flex w-full min-h-screen items-center justify-between">
-      <div className="flex flex-col md:absolute md:top-0 md:right-[50%] justify-center items-center h-screen w-full md:w-[50%]">
-      <img src="/assets/logo23.png" alt="frame" className="w-[160px]" />
+      <div className="flex flex-col md:top-0 md:right-[50%] justify-center items-center h-screen md:w-[50%]">
+        <img src="/assets/logo23.png" alt="frame" className="mt-14 w-[160px]" />
         <p className="font-semibold text-[12px] mb-[2px] text-center p-2">
-        Enjoy Free Shipping on stack commerce!
+          Enjoy Free Shipping on stack commerce!
         </p>
-        <p className="font-semibold text-[12px] mb-[10px] text-center p-1">For buyers, shop at ease and enjoy lower prices for your purchases.</p>
+        <p className="font-semibold text-[12px] mb-[10px] text-center p-1">
+          For buyers, shop at ease and enjoy lower prices for your purchases.
+        </p>
         <form className="flex flex-col my-[2px]">
           <input
             className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-[12px] rounded-lg border-2 border-[#1F1F1F]"
@@ -113,20 +118,17 @@ const Register = () => {
               className="absolute right-[310px] top-[24px] w-[22px] hidden lg:block"
             />
           </div>
+          <p className="font-semibold text-[12px] text-center pb-6">
+            Go back to{" "}
+            <Anchor to="/" className="text-[#4338CA] hover:text-black">
+              Home
+            </Anchor>
+            !
+          </p>
         </form>
-        <p className="font-semibold text-[12px] text-center p-2">
-          Go back to{" "}
-          <Anchor
-            to='/'
-            className="text-[#4338CA] hover:text-black"
-          >
-            Home
-          </Anchor>
-          !
-        </p>
       </div>
       <img
-        className="hidden md:block md:absolute md:top-0 md:right-0 h-screen w-[50%] object-cover"
+        className="hidden md:block md:top-0 md:right-0 h-full w-[50%] object-fit"
         src="/assets/ai-robot.png"
         alt="register"
       />
