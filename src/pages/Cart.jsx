@@ -9,19 +9,19 @@ const Cart = () => {
   return (
     <div className="pt-4">
       <section className="">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
+        <div className="py-4 px-4 mx-auto max-w-screen-xl  text-center lg:py-16 z-10 relative">
+          <h1 className="mb-4 text-4xl text-t_stroke font-extrabold tracking-wider leading-none md:text-5xl lg:text-6xl">
             Shopping Cart
           </h1>
-          <p className="mb-0 text-lg font-normal lg:text-xl sm:px-16 lg:px-48">
-          The best way to predict the future is to invent it
+          <p className="mb-0 text-lg tracking-wider text-t_stroke font-normal lg:text-xl sm:px-16 lg:px-48">
+            The best way to predict the future is to invent it
+            <hr className="my-0.5 bg-t_stroke " />
           </p>
           <form className="w-full max-w-md mx-auto"></form>
         </div>
       </section>
 
       <div className="mx-7 lg:mx-24 mb-7 lg:mb-24">
-
         <div className="relative overflow-x-auto shadow-md sm:rounded-t-lg">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -29,16 +29,16 @@ const Cart = () => {
                 <th scope="col" className="px-6 py-3">
                   <span className="sr-only">Image</span>
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-3 text-t_stroke">
                   Product
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-3 text-t_stroke">
                   Qty
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-3 text-t_stroke">
                   Price
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-3 text-t_stroke">
                   Action
                 </th>
               </tr>
@@ -113,7 +113,7 @@ const Cart = () => {
                 <th scope="col" className="px-6 py-3">
                   <button
                     type="button"
-                    className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                    className="text-white bg-gradient-to-r transition-transform transoform hover:scale-105 from-t_background via-blue-600 to-t_background hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                   >
                     Buy
                   </button>

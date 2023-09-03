@@ -9,7 +9,6 @@ const Admin = () => {
             ADMIN PANEL
           </h1>
           <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
-            
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt
             commodi dicta, autem possimus earum in optio sequi veniam, fugiat
             at, officiis aut ad? Magni animi laborum facilis, quod sequi
