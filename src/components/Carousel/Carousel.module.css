@@ -4,7 +4,6 @@
 
 .slider-wrapper {
   margin: 0px;
-  position: relative;
   overflow: hidden;
   width: 98%;
   margin-bottom: 20px;
@@ -26,7 +25,7 @@
   display: flex;
   top: 0;
   bottom: 0;
-  margin: auto;
+  margin-top: 10%;
   height: 4rem;
   background-color: white;
   border: none;
