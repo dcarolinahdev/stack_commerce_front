@@ -128,7 +128,7 @@ const Register = () => {
         </form>
       </div>
       <img
-        className="hidden md:block md:top-0 md:right-0 h-full w-[50%] object-fit"
+        className="hidden md:block md:top-0 md:right-0 h-screen w-[50%] object-cover"
         src="/assets/ai-robot.png"
         alt="register"
       />
