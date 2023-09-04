@@ -8,10 +8,9 @@
 
 .card {
   position: relative;
-  width: 170px;
+  width: 190px;
   height: 250px;
   background: #727272;
-  border-radius: 20px;
   overflow: hidden;
 }
 
@@ -46,13 +45,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
   z-index: 1;
 }
 
 .card .contentBox {
   position: relative;
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,12 +76,9 @@
   position: relative;
   top: 100px;
   opacity: 0;
-  padding: 10px 30px;
-  margin-top: 15px;
   color: white;
   text-decoration: none;
   background: rgb(25 25 112);
-  border-radius: 30px;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: 0.5s;
