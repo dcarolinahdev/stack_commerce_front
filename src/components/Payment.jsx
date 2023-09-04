@@ -4,7 +4,7 @@ import { BsCashCoin } from "react-icons/bs"
 
 export default function Payment() {
   return (
-    <div className="flex py-4 px-6 justify-between items-center text-t_background bg-[#EDEDED] mb-4">
+    <div className="flex py-4 px-6 justify-around items-center text-t_background bg-[#EDEDED] mb-4">
 
         <div className="flex items-center">
             <AiFillCreditCard className="w-10 h-10" />
