@@ -1,3 +1,8 @@
+@import url(./components/ProductCard/ProductCard.module.css);
+@import url(./components/ProductsList/ProductsList.module.css);
+@import url(./components/CategoryList/CategoryList.module.css);
+@import url(./components/Carousel/Carousel.module.css);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

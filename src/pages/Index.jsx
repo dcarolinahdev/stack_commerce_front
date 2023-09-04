@@ -1,9 +1,12 @@
 import React from "react";
+import ProductList from "../components/ProductsList/productsList";
+import Carousel from "../components/Carousel/Carousel";
 
 const Index = () => {
   return (
-    <div className="h-screen w-screen pt-6 " alt="home">
-      <h1 className="text-t_stroke text-center">Stack commerce</h1>
+    <div className="" alt="home">
+      <Carousel />
+      <ProductList />
     </div>
   );
 };

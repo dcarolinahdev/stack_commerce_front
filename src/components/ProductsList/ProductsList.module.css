@@ -1,0 +1,6 @@
+.productList--container{
+    display: flex;
+    width: 100vw;
+    gap: 10px;
+    height: 400px;
+}

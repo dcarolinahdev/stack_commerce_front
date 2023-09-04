@@ -1,0 +1,60 @@
+[
+  {
+    "category_id": 1,
+    "name": "Smart Mirror 2.0",
+    "description": "Interactive smart mirror with touchscreen display, weather updates, and voice control.",
+    "image": "https://www.homecrux.com/wp-content/gallery/smart-mirror/smart-mirror-1.jpg",
+    "price": 199.99,
+    "stock": 20
+  },
+  {
+    "category_id": 2,
+    "name": "Nano Drone X1",
+    "description": "Pocket-sized nano drone with HD camera, perfect for capturing aerial shots anywhere.",
+    "image": "https://m.media-amazon.com/images/I/71mFVlL6NPL._AC_UF894,1000_QL80_.jpg",
+    "price": 49.99,
+    "stock": 100
+  },
+  {
+    "category_id": 4,
+    "name": "NeuroFit VR",
+    "description": "Virtual reality system for neurorehabilitation, helping patients regain motor skills.",
+    "image": "https://www.mdpi.com/sensors/sensors-20-06045/article_deploy/html/images/sensors-20-06045-g005.png",
+    "price": 799.99,
+    "stock": 5
+  },
+  {
+    "category_id": 5,
+    "name": "Quantum Earbuds",
+    "description": "Wireless earbuds with real-time language translation and advanced noise cancellation.",
+    "image": "https://m.media-amazon.com/images/I/61nR2CVtvvS.jpg",
+    "price": 149.99,
+    "stock": 50
+  },
+  {
+    "category_id": 6,
+    "name": "SolarGrip Charger",
+    "description": "Portable solar charger for smartphones, with a built-in adjustable grip for hands-free use.",
+    "image": "https://manuals.plus/wp-content/uploads/2021/08/s-l640-Copy-1.jpg?ezimgfmt=rs:412x659/rscb1/ng:webp/ngcb1",
+    "price": 79.99,
+    "stock": 30
+  },
+ 
+  {
+    "category_id": 8,
+    "name": "NeuroSync Headset",
+    "description": "Headset that uses brainwave synchronization for enhancing focus and productivity.",
+    "image": "https://www.neurosync.health/wp-content/uploads/2022/09/EYE-SYNC-New-Transparent-1-e1662507025832.png",
+    "price": 299.99,
+    "stock": 8
+  },
+  
+  {
+    "category_id": 10,
+    "name": "TimeWarp Watch",
+    "description": "Smartwatch with the ability to manipulate the perception of time for the wearer.",
+    "image": "https://m.media-amazon.com/images/I/71oZRwJRK-L._AC_UY1000_.jpg",
+    "price": 399.99,
+    "stock": 7
+  }
+]
