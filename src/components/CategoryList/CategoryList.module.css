@@ -1,11 +1,7 @@
 .ProductListCategory {
   background-color: rgb(237, 237, 237);
-  width: fit-content;
-  height: 250px;
-  padding: 10px;
 }
 .ProductListCategory ul {
-  width: fit-content;
   flex-direction: column;
   display: flex;
   gap: 10px;

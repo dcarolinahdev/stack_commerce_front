@@ -6,16 +6,15 @@ export default function ProductList() {
 
     console.log(products);
 
-
     return (
-        
-         
-        <div className='productList--container'>
+        <div className='flex px-6 mb-6'>
             <CategoryList/>
-            {products.map((product => (
-            <ProductCard product={product} />
-        )))}</div>
+            <div className='flex justify-between flex-wrap gap-3 pl-2'>
+                {
+                    products.map((
+                        product => (<ProductCard key={product.category_id} product={product} /> )))
+                }
+            </div>
+        </div>
     )
 }
-
-  

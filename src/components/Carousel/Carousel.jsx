@@ -22,7 +22,7 @@ export default function Carousel() {
     };
 
     return (
-        <section className="slider-wrapper">
+        <section className="w-full slider-wrapper">
             <button className="slide-arrow" id="slide-arrow-prev" onClick={handlePrevClick}>
                 &#8249;
             </button>
@@ -32,7 +32,9 @@ export default function Carousel() {
             <ul className="slides-container" id="slides-container" ref={slidesContainerRef}>
 
                 {CarouselImages.map((item => (
-                    <li className="slide"><CarouselItem item={item} /></li>
+                    <li className="slide">
+                        <CarouselItem item={item} />
+                    </li>
                 )))}
 
             </ul>

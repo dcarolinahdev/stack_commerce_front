@@ -49,18 +49,7 @@
   padding-top: 20px;
   z-index: 1;
 }
-/*
-.card .imgBox img {
-    max-width: 100%;
-    
-    transition: .5s;
-}
 
-.card:hover .imgBox img {
-    max-width: 50%;
-      
-}
-*/
 .card .contentBox {
   position: relative;
   padding: 20px;

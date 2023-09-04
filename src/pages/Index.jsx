@@ -1,10 +1,10 @@
 import React from "react";
-import ProductList from "../components/ProductsList/productsList";
+import ProductList from "../components/ProductsList/ProductsList";
 import Carousel from "../components/Carousel/Carousel";
 
 const Index = () => {
   return (
-    <div className="" alt="home">
+    <div className="">
       <Carousel />
       <ProductList />
     </div>
