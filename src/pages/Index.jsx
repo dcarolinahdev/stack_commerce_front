@@ -5,8 +5,8 @@ import Carou from "../components/Carou";
 
 const Index = () => {
   return (
-    <div className="">
-      <Carou />
+    <div className="container-fluid mx-auto">
+      <Carou  />
       <Payment />
       <ProductList />
     </div>

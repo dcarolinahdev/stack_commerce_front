@@ -7,15 +7,25 @@
 
 <div id="indicators-carousel" className="relative w-full" data-carousel="static">
 
-    <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+    <div className="relative h-56 overflow-hidden md:h-96">
 
         <div className="duration-700 ease-in-out" data-carousel-item="active">
-            <img src="https://alfabetizaciondigital.redem.org/wp-content/uploads/2017/08/administracion.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+            <img src="https://media.istockphoto.com/id/1206800961/photo/online-shopping-and-payment-man-using-tablet-with-shopping-cart-icon-digital-marketing.jpg?s=612x612&w=0&k=20&c=qG_9JB9ll4P5to97_HVxzMqhhzF0Gi1nWM_hNeiotbk=" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
         </div>
 
         <div className=" duration-700 ease-in-out" data-carousel-item>
-            <img src="https://www.claseejecutiva.uc.cl/wp-content/uploads/2020/09/Tecnologias-de-la-informacion-w-s_520492693-min.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+            <img src="https://blog.codingbrains.com/wp-content/uploads/2020/01/E-Commerce-Website-Development-company-In-India.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
         </div>
+
+        <div className=" duration-700 ease-in-out" data-carousel-item>
+            <img src="https://e0.pxfuel.com/wallpapers/466/782/desktop-wallpaper-e-commerce-e-commerce.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        </div>
+
+        <div className=" duration-700 ease-in-out" data-carousel-item>
+            <img src="https://blog.codingbrains.com/wp-content/uploads/2020/01/E-Commerce-Website-Development-company-In-India.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        </div>
+
+
 
     </div>
 

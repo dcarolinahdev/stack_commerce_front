@@ -95,7 +95,7 @@ export default function Display({ show, setShow }) {
   }, []);
 
   return (
-    <div className="fixed z-20 top-0 left-0 w-full h-full lg:w-[430px] bg-t_background">
+    <div className="fixed z-20 top-0 left-0 w-full h-full lg:w-[430px] bg-gradient-to-r from-t_background1 via-purple-500 to-t_background3">
       <div className="flex items-center justify-around text-t_main py-2 px-4">
         <div className="flex flex-col gap-2 py-2">
           <img

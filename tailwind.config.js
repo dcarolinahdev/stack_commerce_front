@@ -8,8 +8,10 @@ module.exports = {
         t_main: "#FFFFFF",
         t_stroke: "#191970",
         t_highlight: "#7F5AF0",
-        t_background: "#191970",
-        t_secondary: "#72757E",
+        t_background1: "#43C6AC",
+        t_background2: "#191654",
+        t_background3: "#191654",
+        t_secondary: "#43C6AC",
         t_paragraph: "#94A1B2",
         t_btn_text: "#7F5AF0",
         t_tertiary: "#2CB67D",
@@ -17,10 +19,6 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [
-    require('flowbite/plugin')
-  ],
-  content: [
-    "./node_modules/flowbite/**/*.js"
-  ],
+  plugins: [require("flowbite/plugin")],
+  content: ["./node_modules/flowbite/**/*.js"],
 };
