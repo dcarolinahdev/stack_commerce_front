@@ -85,7 +85,7 @@ const Register = () => {
             </label>
           </div>
           <input
-            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-xl text-white rounded-lg bg-gradient-to-r from-[#4338CA] to-[#4338CA]"
+            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-xl text-white rounded-lg bg-t_background1"
             type="button"
             value="Sign up"
             onClick={register}

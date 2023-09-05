@@ -85,7 +85,7 @@ export default function Navbar() {
     <>
       {show && <Display options={options} show={show} setShow={setShow} />}
 
-      <nav class="bg-gradient-to-r from-t_background1 via-purple-500 to-t_background3">
+      <nav class="bg-gradient-to-r from-purple-600  via-purple-500 to-purple-600">
         <div class="flex flex-wrap justify-between items-center p-4">
           <Anchor to={"#"} class="flex items-center">
             <img
@@ -129,7 +129,7 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      <nav class="bg-gradient-to-r from-t_background1 via-purple-500 to-t_background3">
+      <nav class="bg-gradient-to-r from-purple-600  via-purple-500 to-purple-600">
         <div class="max-w-screen-xl px-4 pb-2">
           <div class="flex items-center">
             <ul class="flex flex-row flex-wrap mt-2 justify-between font-medium space-x-8 text-sm">
@@ -164,7 +164,7 @@ function signOut_token(setOptions) {
       to: "/",
       title: (
         <div data-tooltip-id="home" data-tooltip-content="Home">
-          <RiHome3Fill className="font-bold text-xl"></RiHome3Fill>
+          <RiHome3Fill className="font-bold text-xl md:text-2xl"></RiHome3Fill>
           <Tooltip id="home" />
         </div>
       ),
@@ -174,7 +174,7 @@ function signOut_token(setOptions) {
       to: "/signin",
       title: (
         <div data-tooltip-id="login" data-tooltip-content="Login">
-          <RiDoorOpenFill className="font-bold text-xl"></RiDoorOpenFill>
+          <RiDoorOpenFill className="font-bold text-xl md:text-2xl"></RiDoorOpenFill>
           <Tooltip id="login" />
         </div>
       ),
@@ -184,7 +184,7 @@ function signOut_token(setOptions) {
       to: "/register",
       title: (
         <div data-tooltip-id="register" data-tooltip-content="Register">
-          <RiUserAddFill className="font-bold text-xl"></RiUserAddFill>
+          <RiUserAddFill className="font-bold text-xl md:text-2xl"></RiUserAddFill>
           <Tooltip id="register" />
         </div>
       ),
