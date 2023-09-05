@@ -7,9 +7,6 @@ export default function ProductList() {
   return (
     <>
       <div class="p-4">
-        <div>
-       
-        </div>
         <div class="grid grid-cols-5 gap-4">
           <div>
             <img
