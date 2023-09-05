@@ -85,8 +85,8 @@ export default function Navbar() {
     <>
       {show && <Display options={options} show={show} setShow={setShow} />}
 
-      <nav class="bg-gradient-to-r from-t_background1 via-purple-500 to-t_background3  ">
-        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+      <nav class="bg-gradient-to-r from-t_background1 via-purple-500 to-t_background3">
+        <div class="flex flex-wrap justify-between items-center p-4">
           <Anchor to={"#"} class="flex items-center">
             <img
               className="w-10 h-10 mr-3 bg-t_main rounded-full  hover:bg-t_main hover:rounded-full cursor-pointer transition-transform transform hover:scale-105 "
@@ -130,7 +130,7 @@ export default function Navbar() {
         </div>
       </nav>
       <nav class="bg-gradient-to-r from-t_background1 via-purple-500 to-t_background3">
-        <div class="max-w-screen-xl px-4 pb-2 mx-auto">
+        <div class="max-w-screen-xl px-4 pb-2">
           <div class="flex items-center">
             <ul class="flex flex-row flex-wrap mt-2 justify-between font-medium space-x-8 text-sm">
               <li className="bg-white text-t_stroke p-1.5  decoration-slice rounded transition-transform transform hover:scale-105 cursor-pointer">
