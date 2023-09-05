@@ -71,7 +71,7 @@ const SignIn = () => {
             ref={password}
           />
           <input
-            className="w-[260px] cursor-pointer md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-xl text-white rounded-lg bg-gradient-to-r bg-t_background"
+            className="w-[260px] cursor-pointer md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-xl text-white rounded-lg bg-gradient-to-r bg-t_background1"
             type="button"
             value="Sign In"
             onClick={signIn}

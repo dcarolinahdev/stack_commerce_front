@@ -85,7 +85,7 @@ const Register = () => {
             </label>
           </div>
           <input
-            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-xl text-white rounded-lg bg-gradient-to-r from-[#4338CA] to-[#4338CA]"
+            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-xl text-white rounded-lg bg-t_background1"
             type="button"
             value="Sign up"
             onClick={register}
@@ -128,7 +128,7 @@ const Register = () => {
         </form>
       </div>
       <img
-        className="hidden md:block md:top-0 md:right-0 h-full w-[50%] object-fit"
+        className="hidden md:block md:top-0 md:right-0 h-screen w-[50%] object-cover"
         src="/assets/ai-robot.png"
         alt="register"
       />
