@@ -27,9 +27,9 @@ export default function Navbar() {
         .then((res) => {
           if (res.data.response.user.role === 1) {
             setOptions([
-              { to: "/", title: "Home" },
-              { to: "/products", title: "Products" },
-              { to: "/category", title: "Category" },
+              // { to: "/", title: "Ho" },
+              // { to: "/products", title: "Products" },
+              // { to: "/category", title: "Category" },
               {
                 to: "/cart",
                 title: (
