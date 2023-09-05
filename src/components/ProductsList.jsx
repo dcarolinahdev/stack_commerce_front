@@ -8,11 +8,7 @@ export default function ProductList() {
     <>
       <div class="p-4">
         <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
-            alt=""
-          />
+       
         </div>
         <div class="grid grid-cols-5 gap-4">
           <div>
