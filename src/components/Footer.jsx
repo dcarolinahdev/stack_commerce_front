@@ -11,13 +11,13 @@ export default function Footer() {
         <span className="text-xl md:text-2xl font-medium">Contact us</span>
 
         <div className="flex flex-col justify-around items-end">
-          <Anchor to={"#"} class="flex items-center">
+          <Anchor to={"#"} className="flex items-center">
             <img
               className="w-10 h-10 mr-3 bg-t_main rounded-full  hidden md:block  hover:bg-t_main hover:rounded-full cursor-pointer transition-transform transform hover:scale-105 "
               src={logo}
               alt="logo"
             ></img>
-            <span class="self-center text-xl font-semibold whitespace-nowrap text-white dark:text-white">
+            <span className="self-center text-xl font-semibold whitespace-nowrap text-white dark:text-white">
               StackCommerce
             </span>
           </Anchor>

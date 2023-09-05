@@ -7,6 +7,7 @@ import NotAllowed from "./NotAllowed";
 import Cart from "./Cart";
 import Category from "./Category";
 import Admin from "./Admin";
+import Category_login from "./Category_login"
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: "/cart", element: <Cart /> },
       { path: "/category", element: <Category /> },
       { path: "/admin", element: <Admin /> },
+      { path: "/category_login", element: <Category_login /> },
     ],
   },
 ]);

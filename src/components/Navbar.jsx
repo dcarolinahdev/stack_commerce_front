@@ -1,194 +1,139 @@
-import Display from "./Display";
+
 import logo from "/assets/logo.ico";
 import { useState, useEffect } from "react";
 import { Link as Anchor } from "react-router-dom";
 import axios from "axios";
 import apiUrl from "../api/ApiUrl";
-import { Tooltip } from "react-tooltip";
-import "react-tooltip/dist/react-tooltip.css";
-
 import headers from "../api/headers";
-import {
-  RiShoppingCartFill,
-  RiHome3Fill,
-  RiDoorOpenFill,
-  RiUserAddFill,
-  RiAccountPinCircleFill,
-  RiUserSettingsFill,
-} from "react-icons/ri";
+
+// import "react-tooltip/dist/react-tooltip.css";
+import { RiShoppingCartLine } from "react-icons/ri";
+import Swal from "sweetalert2";
+
+
 
 export default function Navbar() {
-  const [options, setOptions] = useState([]);
+  const signout = async () => {
+    try {
+      const result = await Swal.fire({
+        title: "Are you sure ?",
+        text: "¿Do you want to log out?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "yes",
+        cancelButtonText: "Cancel",
+        didOpen: () => {
+          const confirmButton = document.querySelector(".swal2-confirm");
+          confirmButton.style.backgroundColor = "#2573F0";
+          confirmButton.style.color = "white";
+        },
+      });
+
+      if (result.isConfirmed) {
+        await axios.post(apiUrl + "/auth/signup", null, headers());
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.location.replace("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [options, setOptions] = useState([
+    { to: "/", title: "Home" },
+    { to: "/register", title: "Regiter" },
+    { to: "/signin", title: "Sing In" },
+  ]);
   useEffect(() => {
-    let token = localStorage.getItem("token");
-    if (token) {
-      axios
-        .post(apiUrl + "/auth/token", null, headers())
-        .then((res) => {
-          if (res.data.response.user.role === 1) {
-            setOptions([
-              // { to: "/", title: "Ho" },
-              // { to: "/products", title: "Products" },
-              // { to: "/category", title: "Category" },
-              {
-                to: "/cart",
-                title: (
-                  <div data-tooltip-id="cart" data-tooltip-content="Cart">
-                    <RiShoppingCartFill className="font-bold text-xl"></RiShoppingCartFill>
-                    <Tooltip id="cart" />
-                  </div>
-                ),
-              },
-              {
-                to: "/profile",
-                title: (
-                  <div data-tooltip-id="profile" data-tooltip-content="Profile">
-                    <RiUserSettingsFill className="font-bold text-xl"></RiUserSettingsFill>
-                    <Tooltip id="profile" />
-                  </div>
-                ),
-              },
-            ]);
-          } else if (res.data.response.user.role === 2) {
-            setOptions([
-              { to: "/", title: "Home" },
-              { to: "/products", title: "Products" },
-              { to: "/category", title: "Category" },
-              {
-                to: "/admin",
-                title: (
-                  <div
-                    data-tooltip-id="admin"
-                    data-tooltip-content="Admin Panel"
-                  >
-                    <RiAccountPinCircleFill className="font-bold text-xl"></RiAccountPinCircleFill>
-                    <Tooltip id="admin" />
-                  </div>
-                ),
-              },
-            ]);
-          } else {
-            setOptions([
-              { to: "/signin", title: "SignIn" },
-              { to: "/register", title: "SignUp" },
-            ]);
-          }
-        })
-        .catch(() => signOut_token(setOptions));
+    let user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+    if (user?.role === 1) {
+      setOptions([
+        { to: "/", title: "Home" },
+        { to: "/category", title: "Category" },
+        { to: "/category_login", title: "Products" },
+        { to: "/cart", title: "Cart" },
+        { to: "/", title: "Sing Out", onClick: signout },
+      ]);
+    } else if (user?.role === 2) {
+      setOptions([
+        { to: "/", title: "Home" },
+        { to: "/admin", title: "Admin Panel" },
+        { to: "/", title: "Sing Out", onClick: signout },
+      ]);
     } else {
-      signOut_token(setOptions);
+      setOptions([
+        { to: "/", title: "Home" },
+        { to: "/register", title: "Regiter" },
+        { to: "/signin ", title: "Sing In" },
+      ]);
     }
   }, []);
 
-  const [show, setShow] = useState(false);
+  let user = JSON.parse(localStorage.getItem("user"));
+  let email = user?.email;
+  let photo = user?.photo;
+
   return (
     <>
-      {show && <Display options={options} show={show} setShow={setShow} />}
-
-      <nav class="bg-gradient-to-r from-purple-600  via-purple-500 to-purple-600">
-        <div class="flex flex-wrap justify-between items-center p-4">
-          <Anchor to={"#"} class="flex items-center">
-            <img
-              className="w-10 h-10 mr-3 bg-t_main rounded-full  hover:bg-t_main hover:rounded-full cursor-pointer transition-transform transform hover:scale-105 "
-              src={logo}
-              onClick={() => setShow(!show)}
-              alt="logo"
-            ></img>
-
-            <span class="self-center text-xl font-semibold whitespace-nowrap text-white dark:text-white">
-              StackCommerce
-            </span>
-          </Anchor>
-          <div class="flex items-center">
-            <div className="flex items-center gap-2">
-              {options?.map((option, index) => (
-                <Anchor
-                  key={index}
-                  to={option.to}
-                  className="hover:bg-t_main hover:rounded font-medium py-1 mr-1 hover:text-t_stroke text-t_main transition-transform transform hover:scale-105 "
-                >
-                  {option?.title}
-                </Anchor>
-              ))}
-            </div>
-
-            <button
-              type="button"
-              class="flex mr-3 text-sm ml-2 bg-gray-800 rounded-full hover:underline md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-              id="user-menu-button"
-              aria-expanded="false"
-              data-dropdown-toggle="user-dropdown"
-              data-dropdown-placement="bottom"
-            >
-              <img
-                className="w-8 h-8 rounded-full object-fit"
-                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/271deea8-e28c-41a3-aaf5-2913f5f48be6/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzI3MWRlZWE4LWUyOGMtNDFhMy1hYWY1LTI5MTNmNWY0OGJlNlwvZGU3ODM0cy02NTE1YmQ0MC04YjJjLTRkYzYtYTg0My01YWMxYTk1YThiNTUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.BopkDn1ptIwbmcKHdAOlYHyAOOACXW0Zfgbs0-6BY-E"
-                alt="user photo"
-              />
-            </button>
-          </div>
+   
+      
+<nav className="bg-white border-gray-200 dark:bg-gray-900">
+  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+  <a className="flex items-center">
+  <RiShoppingCartLine className="text-2xl mr-4 " />
+      <img src="/assets/logo.ico" className="h-8 mr-3" alt="Flowbite Logo" />
+      <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"> StackCommerce</span>
+  </a>
+  <div className="flex items-center md:order-2">
+      <button type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+        <span className="sr-only">Open user menu</span>
+        <img className="w-8 h-8 rounded-full" src={photo} alt="user photo"/>
+      </button>
+  
+      <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+        <div className="px-4 py-3">
+          <span className="block text-sm text-gray-900 dark:text-white">Profile</span>
+          <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">{email}</span>
         </div>
-      </nav>
-      <nav class="bg-gradient-to-r from-purple-600  via-purple-500 to-purple-600">
-        <div class="max-w-screen-xl px-4 pb-2">
-          <div class="flex items-center">
-            <ul class="flex flex-row flex-wrap mt-2 justify-between font-medium space-x-8 text-sm">
-              <li className="bg-white text-t_stroke p-1.5  decoration-slice rounded transition-transform transform hover:scale-105 cursor-pointer">
-                <Anchor className="dark:text-white hover:underline">
-                  Products
-                </Anchor>
-              </li>
-              <li className="bg-white text-t_stroke p-1.5 rounded transition-transform transform hover:scale-105 cursor-pointer">
-                <Anchor className=" dark:text-white hover:underline">
-                  Category
-                </Anchor>
-              </li>
-              <li className="bg-white text-t_stroke p-1.5 rounded transition-transform transform hover:scale-105 cursor-pointer">
-                <Anchor className=" dark:text-white hover:underline">
-                  Offers
-                </Anchor>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+        <ul className="py-2" aria-labelledby="user-menu-button">
+        
+          <li>
+          <Anchor onClick={signout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</Anchor>
+          </li>
+        </ul>
+      </div>
+      <button data-collapse-toggle="navbar-user" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
+        <span className="sr-only">Open main menu</span>
+        <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+    </button>
+  </div>
+  <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+    <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      <li>
+      {options?.map((option, index) => (
+                    <Anchor
+                      onClick={option?.onClick}
+                      key={index}
+                      to={option?.to}
+                      className="mr-4"
+                      // className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    >
+                      {option?.title}
+                    </Anchor>
+                  ))}  
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+
+
+
     </>
   );
-}
-
-function signOut_token(setOptions) {
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
-  setOptions([
-    {
-      to: "/",
-      title: (
-        <div data-tooltip-id="home" data-tooltip-content="Home">
-          <RiHome3Fill className="font-bold text-xl md:text-2xl"></RiHome3Fill>
-          <Tooltip id="home" />
-        </div>
-      ),
-      onClick: () => showDisplay({ show, setShow }),
-    },
-    {
-      to: "/signin",
-      title: (
-        <div data-tooltip-id="login" data-tooltip-content="Login">
-          <RiDoorOpenFill className="font-bold text-xl md:text-2xl"></RiDoorOpenFill>
-          <Tooltip id="login" />
-        </div>
-      ),
-      onClick: () => showDisplay({ show, setShow }),
-    },
-    {
-      to: "/register",
-      title: (
-        <div data-tooltip-id="register" data-tooltip-content="Register">
-          <RiUserAddFill className="font-bold text-xl md:text-2xl"></RiUserAddFill>
-          <Tooltip id="register" />
-        </div>
-      ),
-      onClick: () => showDisplay({ show, setShow }),
-    },
-  ]);
 }
