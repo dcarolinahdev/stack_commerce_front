@@ -1,16 +1,10 @@
-
-import logo from "/assets/logo.ico";
 import { useState, useEffect } from "react";
 import { Link as Anchor } from "react-router-dom";
 import axios from "axios";
 import apiUrl from "../api/ApiUrl";
 import headers from "../api/headers";
-
-// import "react-tooltip/dist/react-tooltip.css";
 import { RiShoppingCartLine } from "react-icons/ri";
 import Swal from "sweetalert2";
-
-
 
 export default function Navbar() {
   const signout = async () => {
@@ -42,6 +36,7 @@ export default function Navbar() {
 
   const [options, setOptions] = useState([
     { to: "/", title: "Home" },
+    { to: "/category", title: "Category" },
     { to: "/register", title: "Regiter" },
     { to: "/signin", title: "Sing In" },
   ]);
@@ -51,16 +46,15 @@ export default function Navbar() {
     if (user?.role === 1) {
       setOptions([
         { to: "/", title: "Home" },
-        { to: "/category", title: "Category" },
         { to: "/category_login", title: "Products" },
         { to: "/cart", title: "Cart" },
-        { to: "/", title: "Sing Out", onClick: signout },
+        
       ]);
     } else if (user?.role === 2) {
       setOptions([
         { to: "/", title: "Home" },
         { to: "/admin", title: "Admin Panel" },
-        { to: "/", title: "Sing Out", onClick: signout },
+        
       ]);
     } else {
       setOptions([
@@ -82,15 +76,16 @@ export default function Navbar() {
 <nav className="bg-white border-gray-200 dark:bg-gray-900">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a className="flex items-center">
-  <RiShoppingCartLine className="text-2xl mr-4 " />
       <img src="/assets/logo.ico" className="h-8 mr-3" alt="Flowbite Logo" />
       <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"> StackCommerce</span>
   </a>
   <div className="flex items-center md:order-2">
+  <RiShoppingCartLine className="text-2xl mr-4 " />
       <button type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-        <span className="sr-only">Open user menu</span>
         <img className="w-8 h-8 rounded-full" src={photo} alt="user photo"/>
       </button>
+  {/* <RiShoppingCartLine className="text-2xl ml-4 " /> */}
+
   
       <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
         <div className="px-4 py-3">
