@@ -50,12 +50,11 @@ export default function ProductList() {
             <CategoryList />
           </div>
 
-          <div className="w-full md:w-[80%] flex flex-wrap px-2">
+          <div className="w-full md:w-[80%] grid grid-cols-1 md:grid-cols-4 px-2">
             {products.map((product) => (
               <div
                 key={product.category_id}
-                className="w-1/2  md:w-1/2 lg:w-1/3 xl:w-1/4"
-              >
+                className="">
                 <ProductCard product={product} />
               </div>
             ))}
