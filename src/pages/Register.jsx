@@ -40,18 +40,18 @@ const Register = () => {
   };
 
   return (
-    <main className="flex w-full min-h-screen items-center justify-between">
-      <div className="flex flex-col md:top-0 md:right-[50%] justify-center items-center h-screen md:w-[50%]">
-        <img src="/assets/logo23.png" alt="frame" className="mt-14 w-[160px]" />
-        <p className="font-semibold text-[12px] mb-[2px] text-center p-2">
+    <main className="flex bg-t_main w-screen min-h-screen items-center justify-between">
+      <div className="flex flex-col md:top-0 md:right-[50%] items-center h-screen w-screen md:w-[50%]">
+      <img src="/assets/logo23.png" alt="frame" className="mt-8 w-[140px]" />
+        <p className="font-semibold text-[10px] mb-[1px] text-center p-1">
           Enjoy Free Shipping on stack commerce!
         </p>
-        <p className="font-semibold text-[12px] mb-[10px] text-center p-1">
+        <p className="font-semibold text-[10px] mb-[1px] text-center p-1">
           For buyers, shop at ease and enjoy lower prices for your purchases.
         </p>
         <form className="flex flex-col my-[2px]">
           <input
-            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-[12px] rounded-lg border-2 border-[#1F1F1F]"
+            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[40px] p-2 my-[8px] text-[12px] hover:border-[#4338CA] rounded-lg border-2 border-[#1F1F1F]"
             type="email"
             name="email"
             id="email"
@@ -59,7 +59,7 @@ const Register = () => {
             ref={email}
           />
           <input
-            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-[12px] rounded-lg border-2 border-[#1F1F1F]"
+            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[40px] p-2 my-[8px] text-[12px] hover:border-[#4338CA] rounded-lg border-2 border-[#1F1F1F]"
             type="text"
             name="Photo"
             id="Photo"
@@ -67,56 +67,39 @@ const Register = () => {
             ref={photo}
           />
           <input
-            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-[12px] rounded-lg border-2 border-[#1F1F1F]"
+            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[40px] p-2 my-[8px] text-[12px] hover:border-[#4338CA] rounded-lg border-2 border-[#1F1F1F]"
             type="password"
             name="password"
             id="password"
             placeholder="Password"
             ref={password}
           />
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              id="myCheckbox"
-              className="form-checkbox text-indigo-600 h-5 w-5"
-            />
-            <label id="myCheckbox" className="ml-2 text-gray-700">
-              Send notificacion to my email
-            </label>
-          </div>
           <input
-            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-xl text-white rounded-lg bg-t_background1"
+            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[40px] p-2 my-[8px] text-xl text-white rounded-lg bg-gradient-to-r bg-t_background from-[#4338CA] hover:bg-[#4348CA] hover:text-[white] hover:border-[#4338CA]"
             type="button"
             value="Sign up"
             onClick={register}
           />
           <div className="relative">
-            <input
-              className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-[18px] text-center rounded-lg border-2 border-[#1F1F1F]"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Sign in with Google"
-            />
-            <img
-              src="/assets/Google.png"
-              alt="google"
-              className="absolute right-[310px] top-[24px] w-[22px] hidden lg:block"
-            />
+            <a
+                href="https://accounts.google.com/v3/signin/identifier?dsh=S-1945593188%3A1688431387052498&continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&emr=1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&ifkv=AeDOFXh333ESPpierC-U9AFHbwabu7NXKW3GDPpiyQmMsS8m6FCT5GG60vBW8FSn5d5WsW6re4P4&osid=1&passive=1209600&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+                type="button"
+                className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[35px] p-2 my-[5px] hover:bg-[#4338CA] hover:text-[white] hover:border-[#4338CA] text-[13px] text-center rounded-lg border-2 border-[#1F1F1F]"
+              >
+                <img src="/assets/Google.png" alt=""  className="absolute right-[285px] top-[13px] w-[22px] hidden lg:block  "/>
+                <p>Sign in with Google</p> 
+              </a>
           </div>
           <div className="relative">
-            <input
-              className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[45px] p-2 my-[12px] text-[18px] text-center rounded-lg border-2 border-[#1F1F1F]"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Sign in with Apple"
-            />
-            <img
-              src="/assets/iphone-logo.png"
-              alt="Apple"
-              className="absolute right-[310px] top-[24px] w-[22px] hidden lg:block"
-            />
+            <a
+                href="https://appleid.apple.com/sign-in"
+                type="button"
+                className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[35px] p-2 my-[5px] hover:bg-[#4338CA] hover:text-[white] hover:border-[#4338CA] text-[13px] text-center rounded-lg border-2 border-[#1F1F1F]"
+              >
+                <img src="/assets/iphone-logo.png" alt="Apple"  className="absolute right-[280px] top-[7px] w-[30px] hidden lg:block"
+                />
+                <p>Sign in with Apple</p> 
+              </a>
           </div>
           <p className="font-semibold text-[12px] text-center pb-6">
             Go back to{" "}
