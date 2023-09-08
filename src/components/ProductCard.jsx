@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
       <div className="">
         <a className="flex justify-center items-center" href="#">
           <img
-            className="w-[270px] h-[270px] md:min-w-[170px] md:max-w-auto m-2 object-contain rounded-2xl p-2 bg-white"
+            className="w-[270px] h-[270px] md:min-w-[160px] md:max-w-auto m-2 object-contain hover:scale-105 hover:border-4 hover:border-slate-400 rounded-2xl p-2 bg-white"
             src={product.image}
             alt=""/>
         </a>
@@ -74,7 +74,7 @@ const ProductCard = ({ product }) => {
           <div className="flex items-center justify-center">
             <Anchor
               to={"/cart"}
-              className="inline-flex  items-center px-3 py-2 text-sm font-medium text-center text-t_background3 bg-white rounded-lg transition-transform transform hover:scale-110 hover:bg-t_background1 hover:text-white  focus:ring-4 focus:outline-none"
+              className="inline-flex  items-center px-3 py-2 text-sm font-medium text-center text-t_background3 bg-white rounded-lg transition-transform transform hover:bg-t_background1 hover:text-white  focus:ring-4 focus:outline-none"
             >
               Add
               <div className="ml-2">
