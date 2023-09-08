@@ -10,22 +10,22 @@
 
             <div className="duration-700 ease-in-out" data-carousel-item="active">
                 <img src="https://media.istockphoto.com/id/1206800961/photo/online-shopping-and-payment-man-using-tablet-with-shopping-cart-icon-digital-marketing.jpg?s=612x612&w=0&k=20&c=qG_9JB9ll4P5to97_HVxzMqhhzF0Gi1nWM_hNeiotbk="
-                     className="absolute block h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                     className="absolute block h-full w-full object-cover object-center -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
             </div>
 
             <div className=" duration-700 ease-in-out" data-carousel-item>
                 <img src="https://blog.codingbrains.com/wp-content/uploads/2020/01/E-Commerce-Website-Development-company-In-India.jpg"
-                     className="absolute block h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                     className="absolute block h-full w-full object-cover object-center -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
             </div>
 
             <div className=" duration-700 ease-in-out" data-carousel-item>
                 <img src="https://e0.pxfuel.com/wallpapers/466/782/desktop-wallpaper-e-commerce-e-commerce.jpg"
-                     className="absolute block h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                     className="absolute block h-full w-full object-cover object-center -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
             </div>
 
             <div className=" duration-700 ease-in-out" data-carousel-item>
                 <img src="https://blog.codingbrains.com/wp-content/uploads/2020/01/E-Commerce-Website-Development-company-In-India.jpg"
-                     className="absolute block h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                     className="absolute block h-full w-full object-cover object-center -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
             </div>
 
 
