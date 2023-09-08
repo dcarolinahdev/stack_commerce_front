@@ -4,15 +4,17 @@ import { RiShoppingCartFill } from "react-icons/ri";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="max-w-sm mt-2 transition-transform transform hover:scale-105 bg-gradient-to-r from-t_background1 via-purple-500 to-t_background3  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-        <img
-          className="w-full h-[250px] p-2 rounded-3xl"
-          src={product.image}
-          alt=""
-        />
-      </a>
-      <div className="flex items-center flex-col justify-center p-2 ">
+    <div className="mt-2 transition-transform transform hover:scale-105 bg-gradient-to-r from-t_background1 via-purple-500 to-t_background3  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="flex justify-center items-center">
+        <a className="" href="#">
+          <img
+            className="w-[230px] h-[230px] m-2 object-contain rounded-2xl p-2 bg-white"
+            src={product.image}
+            alt=""
+          />
+        </a>
+      </div>
+      <div className="min-h-[140px] flex items-center flex-col justify-center p-2 ">
         <Anchor href="#">
           <h5 className="mb-2 text-lg md:text-2xl font-bold tracking-tight text-white dark:text-white ">
             {product.name}
