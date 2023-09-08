@@ -5,43 +5,41 @@ import ProductCard from "./ProductCard";
 export default function ProductList() {
   return (
     <>
-      <div className="p-4">
-        <div className="grid grid-cols-5 gap-4">
-          <div className="transition-transform transform hover:scale-105 cursor-pointer shadow-2xl shadow-purple-300">
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-              alt=""
-            />
-          </div>
-          <div className="transition-transform transform hover:scale-105 cursor-pointer shadow-2xl shadow-purple-300">
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-              alt=""
-            />
-          </div>
-          <div className="transition-transform transform hover:scale-105 cursor-pointer shadow-2xl shadow-purple-300">
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-              alt=""
-            />
-          </div>
-          <div className="transition-transform transform hover:scale-105 cursor-pointer shadow-2xl shadow-purple-300">
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-              alt=""
-            />
-          </div>
-          <div className="transition-transform transform hover:scale-105 cursor-pointer shadow-2xl shadow-purple-300">
-            <img
-              className="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
-              alt=""
-            />
-          </div>
+      <div className="grid grid-cols-3 md:grid-cols-5">
+        <div className="flex justify-center transition-transform transform hover:scale-105 cursor-pointer shadow-2xl shadow-purple-300">
+          <img
+            className="h-56 object-cover rounded-lg"
+            src="https://m.media-amazon.com/images/I/71QQZr2pNSL.jpg"
+            alt=""
+          />
+        </div>
+        <div className="hidden md:flex justify-center transition-transform transform hover:scale-105 cursor-pointer shadow-2xl shadow-purple-300">
+          <img
+            className="h-56 object-cover rounded-lg"
+            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+            alt=""
+          />
+        </div>
+        <div className="flex justify-center transition-transform transform hover:scale-105 cursor-pointer shadow-2xl shadow-purple-300">
+          <img
+            className="h-56 object-cover rounded-lg"
+            src="https://m.media-amazon.com/images/I/71ctRE34RuL.__AC_SY300_SX300_QL70_FMwebp_.jpg"
+            alt=""
+          />
+        </div>
+        <div className="hidden md:flex justify-center transition-transform transform hover:scale-105 cursor-pointer shadow-2xl shadow-purple-300">
+          <img
+            className="h-56 object-cover rounded-lg"
+            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
+            alt=""
+          />
+        </div>
+        <div className="flex justify-center transition-transform transform hover:scale-105 cursor-pointer shadow-2xl shadow-purple-300">
+          <img
+            className="h-56 object-cover rounded-lg"
+            src="https://topesdegama.com/app/uploads-topesdegama.com/2022/07/Horno-inteligente.jpg"
+            alt=""
+          />
         </div>
       </div>
 
