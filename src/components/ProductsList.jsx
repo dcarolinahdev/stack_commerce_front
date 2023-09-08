@@ -44,26 +44,23 @@ export default function ProductList() {
       </div>
 
       <div className="container-fluid mx-auto">
-        <div className="flex flex-wrap p-2">
-          <div className="w-full md:w-[15%] pr-1">
-            <div className="hidden md:block">
-              <CategoryList />
-            </div>
-            <div className="md:hidden">
-              <CategoryList />
-            </div>
+        <div className="flex flex-wrap py-2">
+
+          <div className="w-full md:w-[20%] px-2">
+            <CategoryList />
           </div>
 
-          <div className="w-full md:w-[85%] pr-1 flex flex-wrap">
+          <div className="w-full md:w-[80%] flex flex-wrap px-2">
             {products.map((product) => (
               <div
                 key={product.category_id}
-                className="w-1/2  md:w-1/2 lg:w-1/3 xl:w-1/4 pr-1"
+                className="w-1/2  md:w-1/2 lg:w-1/3 xl:w-1/4"
               >
                 <ProductCard product={product} />
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </>
