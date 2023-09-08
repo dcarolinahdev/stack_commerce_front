@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 export default function ProductList() {
   return (
     <>
-      <div className="grid grid-cols-3 md:grid-cols-5">
+      <div className="grid grid-cols-3 md:grid-cols-5 gap-1 p-3 bg-slate-50">
         <div className="flex justify-center transition-transform transform hover:scale-105 cursor-pointer shadow-2xl shadow-purple-300">
           <img
             className="h-56 object-cover rounded-lg"
