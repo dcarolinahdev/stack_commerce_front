@@ -1,7 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import CardProducts from "./CardProducts";
+import apiUrl from "../api/ApiUrl";
+import headers from "../api/headers";
+import axios from "axios";
 
 const Category_login = () => {
+  const [allProducts, setAllProducts] = useState([]);
+  const [products, setProducts] = useState([]);
+  // console.log(products);
+  const [searchName, setSearchName] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Category");
+  
+  useEffect(() => {
+    try {
+      axios.get(apiUrl + "/products", headers()).then((res) => {
+        setAllProducts(res.data.response);
+        setProducts(res.data.response);
+        // console.log("allProducts:", res.data.response);
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
+
+  useEffect(() => {
+    filter(searchName, selectedCategory);
+  }, [searchName, selectedCategory]);
+
+  const handleChange = (e) => {
+    setSearchName(e.target.value);
+  };
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+  const filter = (searchName, category) => {
+    if (searchName === "" && category === "Category") {
+      setProducts(allProducts);
+    } else {
+      let filteredProducts = allProducts.filter((element) => {
+        const nameMatches = element.name
+          .toString()
+          .toLowerCase()
+          .includes(searchName.toLowerCase());
+        const categoryMatches =
+          category === "Category" || element.category_id === category;
+          // console.log(category);
+          // console.log(element.category_id);
+        return nameMatches && categoryMatches;
+      });
+      setProducts(filteredProducts);
+    }
+  };
   return (
     <>
       <form className="flex  items-center mx-[25%] mb-4">
@@ -30,8 +80,10 @@ const Category_login = () => {
             type="text"
             id="simple-search"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search branch name..."
+            placeholder="Find Products"
             required
+            value={searchName}
+            onChange={handleChange}
           />
         </div>
         <button
@@ -58,53 +110,63 @@ const Category_login = () => {
 
         <div className="hidden lg:block">
           <select
-            id=""
+            id="category-select"
             className="ml-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
+            onChange={handleCategoryChange}
           >
             <option value="Category">Category</option>
-            <option value="Computers and Accessories">
+            <option value="64f21b6196ee35726908b90f">
               Computers and Accessories
             </option>
-            <option value="Gadget Innovadores">Gadget Innovadores</option>
-            <option value="Smart home appliances">Smart home appliances</option>
-            <option value="Smartphones and Accessories">
+            <option value="64f21b6196ee35726908b911">Gadget Innovadores</option>
+            <option value="64f21b6196ee35726908b910">Smart home appliances</option>
+            <option value="64f21b6196ee35726908b90e">
               Smartphones and Accessories
             </option>
-            <option value="Household appliances">Household appliances</option>
-            <option value="Tablets and Smartwatches">
+            <option value="64f21b6196ee35726908b912">Home Appliances</option>
+            <option value="64f21b6196ee35726908b913">
               Tablets and Smartwatches
             </option>
           </select>
         </div>
       </form>
-
-      <div className="flex justify-center">
-        <a
-          href="#"
-          className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+      {products.length === 0 && (
+        <p className="text-center text-red-500 font-semibold my-8 mt-[100px] text-[25px] ">
+        <svg
+          className="mx-auto h-16 w-16 text-red-500  "
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <img
-            className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-            src="https://www.homecrux.com/wp-content/gallery/smart-mirror/smart-mirror-1.jpg"
-            alt=""
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          ></path>
+        </svg>
+        <br />
+        We're sorry!
+        <br />
+        No results found for the search.
+        <br />
+        Please try another search term.
+      </p>
+      )}
+      <div className="xl:grid gap-x-8 gap-y-4 grid-cols-3 mx-10">
+        {products.map((each) => (
+          <CardProducts
+            key={each._id}
+            name={each.name}
+            image={each.image}
+            description={each.description}
+            price={each.price}
+            stock={each.stock}
+            id={each._id}
           />
-          <div className="flex flex-col justify-between p-4 leading-normal">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Smart Mirror 2.0
-            </h5>
-
-            <span className="text-3xl font-bold ml-12 text-gray-900 dark:text-white">
-              $599
-            </span>
-            <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                Buy
-              </span>
-            </button>
-          </div>
-        </a>
+        ))}
       </div>
     </>
   );

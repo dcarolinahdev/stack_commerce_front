@@ -17,7 +17,7 @@ const SignIn = () => {
     };
 
     try {
-      let user = await axios.post(apiUrl + "/auth/signIn", data);
+      let user = await axios.post(apiUrl + "/auth/signin", data);
 
       if (user) {
         localStorage.setItem("token", user.data.response.token);
