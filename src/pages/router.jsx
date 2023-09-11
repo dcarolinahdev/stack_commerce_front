@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, redirect } from "react-router-dom";
 import Main from "../layouts/Main";
 import Index from "./Index";
 import SignIn from "../pages/Signln";
@@ -19,11 +19,11 @@ const router = createBrowserRouter([
       { path: "/home", element: <Index /> },
       { path: "/register", element: <Register /> },
       { path: "/signin", element: <SignIn /> },
-      { path: "/not-allowed", element: <NotAllowed /> },
       { path: "/cart", element: <Cart /> },
       { path: "/category", element: <Category /> },
       { path: "/admin", element: <Admin /> },
-      { path: "/category_login", element: <Category_login /> },
+      { path: "/category_login", element: <Category_login />},
+      { path: "/not-allowed", element: <NotAllowed /> },
     ],
   },
 ]);

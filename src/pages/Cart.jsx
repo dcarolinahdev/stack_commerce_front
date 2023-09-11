@@ -2,7 +2,6 @@ import React from "react";
 import {
   RiAddCircleLine,
   RiIndeterminateCircleLine,
-  RiCloseCircleLine,
 } from "react-icons/ri";
 
 const Cart = () => {
