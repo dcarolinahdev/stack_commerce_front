@@ -59,6 +59,7 @@ export default function Navbar() {
     } else {
       setOptions([
         { to: "/", title: "Home" },
+        { to: "/category", title: "Category" },
         { to: "/register", title: "Regiter" },
         { to: "/signin ", title: "Sing In" },
       ]);
