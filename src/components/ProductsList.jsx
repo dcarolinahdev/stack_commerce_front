@@ -50,7 +50,7 @@ export default function ProductList() {
             <CategoryList />
           </div>
 
-          <div className="w-full md:w-[80%] grid grid-cols-1 md:grid-cols-4 px-2">
+          <div className="w-full md:w-[80%] grid grid-cols-1 md:grid-cols-4 gap-2 px-2">
             {products.map((product) => (
               <div
                 key={product.category_id}
