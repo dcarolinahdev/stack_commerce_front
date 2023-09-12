@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 import apiUrl from "../api/ApiUrl";
+import headers from "../api/headers";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Register = () => {
       photo: photo.current.value?.trim(),
     };
     try {
-      let newUser = await axios.post(apiUrl + "/auth/signup", data);
+      let newUser = await axios.post(apiUrl + "/auth/signout", null, headers());
 
       if (newUser) {
         Swal.fire({
