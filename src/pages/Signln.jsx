@@ -70,7 +70,7 @@ const SignIn = () => {
             ref={password}
           />
           <input
-            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[40px] p-2 my-[8px] text-xl text-white rounded-lg bg-gradient-to-r bg-t_background from-[#4338CA] hover:bg-[#4348CA] hover:text-[white] hover:border-[#4338CA]"
+            className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[40px] p-2 my-[8px] text-xl text-white rounded-lg bg-gradient-to-r bg-t_background from-[#4338CA] hover:bg-[#4348CA] hover:text-[white] hover:border-[#4338CA] cursor-pointer"
             type="button"
             value="Sign In"
             onClick={signIn}
