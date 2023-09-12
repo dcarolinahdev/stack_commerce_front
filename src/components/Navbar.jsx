@@ -87,7 +87,7 @@ export default function Navbar() {
           <div className="flex items-center md:order-2">
             {user_id ? (
               <>
-              <Anchor to={"/cart"}>
+              <Anchor to={"/cart/1"}>
                 <RiShoppingCartLine className="text-2xl mr-4 cursor-pointer" />
               </Anchor>
                  <button
