@@ -73,7 +73,7 @@ const ProductCard = ({ product }) => {
           </div>
           <div className="flex items-center justify-center">
             <Anchor
-              to={"/cart"}
+              to={"/register"}
               className="inline-flex  items-center px-3 py-2 text-sm font-medium text-center text-t_background3 bg-white rounded-lg transition-transform transform hover:bg-t_background1 hover:text-white  focus:ring-4 focus:outline-none"
             >
               Add
