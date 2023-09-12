@@ -8,7 +8,7 @@ export default function CategoryList() {
 
     useEffect(
         () => {
-          axios(apiUrl + "/categories", headers())
+          axios(apiUrl + "/categories",)
             .then((res) => {
               setCategories(res.data.response);
             })
@@ -20,7 +20,7 @@ export default function CategoryList() {
     return (
         <>
             <div className="flex flex-col rounded-lg mt-2 bg-t_background1">
-                {categories.map(category => (
+                {categories?.map(category => (
                     <button
                         key={category._id}
                         type="button"
