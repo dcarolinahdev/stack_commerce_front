@@ -1,10 +1,24 @@
-import React from "react";
+import React,{ useEffect, useState } from "react";
 import { Link as Anchor } from "react-router-dom";
+import CardProducts from "./CardProducts";
+import apiUrl from "../api/ApiUrl";
+import headers from "../api/headers";
+import axios from "axios";
 
 const Category = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    try {
+      axios.get(apiUrl + "/products", headers()).then((res) => {
+        setProducts(res.data.response);
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
+
   return (
     <>
-      <h1>Category</h1>
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="flex flex-col justify-center">
@@ -25,7 +39,7 @@ const Category = () => {
                 Register
               </Anchor>
               <Anchor
-                to={"/login"}
+                to={"/signin"}
                 type="button"
                 className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
               >
@@ -45,6 +59,20 @@ const Category = () => {
           </div>
         </div>
       </section>
+      <div className="xl:grid gap-x-8 gap-y-4 grid-cols-3 mx-10">
+        <h1>hh</h1>
+        {products.map((each) => (
+          <CardProducts
+            key={each._id}
+            name={each.name}
+            image={each.image}
+            description={each.description}
+            price={each.price}
+            stock={each.stock}
+            id={each._id}
+          />
+        ))}
+      </div>
       <div className="lg:flex lg:justify-around  ">
         <div className="  w-full h-[15%] max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
