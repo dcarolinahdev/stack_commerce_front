@@ -36,7 +36,7 @@ export default function Navbar() {
 
   const [options, setOptions] = useState([
     { to: "/", title: "Home" },
-    { to: "/category", title: "Category" },
+    // { to: "/category", title: "Category" },
     { to: "/register", title: "Register" },
     { to: "/signin", title: "Sign In" },
   ]);
@@ -57,7 +57,7 @@ export default function Navbar() {
     } else {
       setOptions([
         { to: "/", title: "Home" },
-        { to: "/category", title: "Category" },
+        // { to: "/category", title: "Category" },
         { to: "/register", title: "Register" },
         { to: "/signin ", title: "Sign In" },
       ]);
