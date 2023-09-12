@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         }
       },
       { 
-        path: "/cart", element: <Cart />, loader: async => {
+        path: "/cart/:id", element: <Cart />, loader: async => {
           let user = JSON.parse(localStorage.getItem("user"))
           return (!user) && redirect("/signin")
         }
