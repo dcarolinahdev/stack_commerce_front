@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 import apiUrl from "../api/ApiUrl";
+import headers from "../api/headers";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Register = () => {
       photo: photo.current.value?.trim(),
     };
     try {
-      let newUser = await axios.post(apiUrl + "/auth/signup", data);
+      let newUser = await axios.post(apiUrl + "/auth/signout", null, headers());
 
       if (newUser) {
         Swal.fire({
@@ -40,16 +41,17 @@ const Register = () => {
   };
 
   return (
-    <main className="flex bg-t_main w-full min-h-full items-center justify-between   ">
-      <div className="flex flex-col md:top-0 md:right-[50%] items-center h-screen w-screen md:w-[50%] ">
-      <img src="/assets/logo23.png" alt="frame" className="mt-[13%] w-[140px] " />
+    <main className="flex bg-t_main w-full min-h-full items-center mt-2">
+
+      <div className="flex flex-col items-center justify-center gap-2 h-screen w-screen md:w-[50%]">
+        <img src="/assets/logo23.png" alt="frame" className="w-[140px]" />
         <p className="font-semibold text-[10px] mb-[1px] text-center p-1">
           Enjoy Free Shipping on stack commerce!
         </p>
         <p className="font-semibold text-[10px] mb-[1px] text-center p-1">
           For buyers, shop at ease and enjoy lower prices for your purchases.
         </p>
-        <form className="flex flex-col my-[2px] ">
+        <form className="flex flex-col">
           <input
             className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[40px] p-2 my-[8px] text-[12px] hover:border-t_background3 rounded-lg border-2 border-[#1F1F1F]"
             type="email"
@@ -100,11 +102,13 @@ const Register = () => {
           </p>
         </form>
       </div>
+
       <img
-        className="hidden md:block md:top-0 md:right-0 h-screen w-[50%] object-cover mt-1"
+        className="hidden md:block h-screen w-[50%] object-cover"
         src="/assets/ai-robot.png"
         alt="register"
       />
+
     </main>
   );
 };
