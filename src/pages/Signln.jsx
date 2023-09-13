@@ -107,7 +107,7 @@ const SignIn = () => {
         </p>
       </div>
       <img
-        className="hidden md:block h-screen w-[50%] object-cover"
+        className="hidden md:block md:top-0 md:right-0 h-screen w-[50%] object-cover mt-1"
         src="/assets/istockphoto-523788889-612x612.jpg"
         alt="register"
       />
