@@ -49,11 +49,10 @@ const SignIn = () => {
   };
 
   return (
-    <main className="flex bg-t_main w-full min-h-screen items-center justify-between mt-2">
-      <div className="flex flex-col md:top-0 md:right-[50%] items-center h-full w-full md:w-[50%]">
-        <img src="/assets/logo23.png" alt="frame" className="mt-8 w-[140px]" />
-        <p className="font-semibold text-[18px] mb-[2px] text-center p-2"></p>
-        <form className="flex flex-col my-[2px]">
+    <main className="flex bg-t_main w-full min-h-full items-center mt-2">
+      <div className="flex flex-col items-center justify-center gap-2 h-screen w-screen md:w-[50%]">
+        <img src="/assets/logo23.png" alt="frame" className="w-[140px]" />
+        <form className="flex flex-col">
           <input
             className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[40px] p-2 my-[8px] text-[12px] hover:border-t_background1 rounded-lg border-2 border-[#1F1F1F]"
             type="email"
@@ -92,14 +91,14 @@ const SignIn = () => {
           </div> */}
   
         </form>
-        <p className="font-semibold text-[12px] mt-[12px] text-center p-2">
+        <p className="font-semibold text-[12px] mt-[12px] p-2">
           You don't have an account yet?{" "}
           <Anchor to="/register" className="text-[#4338CA] hover:text-black">
             Sign up
           </Anchor>
           !
         </p>
-        <p className="font-semibold text-[12px] text-center p-2">
+        <p className="font-semibold text-[12px] p-2">
           Go back to{" "}
           <Anchor to="/" className="text-[#4338CA] hover:text-black">
             Home
@@ -108,7 +107,7 @@ const SignIn = () => {
         </p>
       </div>
       <img
-        className="hidden md:block md:top-0 md:right-0 h-full w-[50%] object-cover"
+        className="hidden md:block h-screen w-[50%] object-cover"
         src="/assets/istockphoto-523788889-612x612.jpg"
         alt="register"
       />
