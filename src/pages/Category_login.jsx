@@ -4,6 +4,7 @@ import apiUrl from "../api/ApiUrl";
 import headers from "../api/headers";
 import axios from "axios";
 
+
 const Category_login = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [products, setProducts] = useState([]);
@@ -54,14 +55,14 @@ const Category_login = () => {
   };
   return (
     <>
-      <form className="flex  items-center mx-[25%] mb-4">
+      <form className="flex  items-center mx-[25%] mb-4 mt-7 ">
         <label htmlFor="simple-search" className="sr-only">
           Search
         </label>
         <div className="relative w-full ">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
-              className="w-4 h-4 text-gray-500 dark:text-gray-400"
+              className="w-4 h-4 text-gray-500 dark:text-gray-400 "
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -79,7 +80,7 @@ const Category_login = () => {
           <input
             type="text"
             id="simple-search"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
             placeholder="Find Products"
             required
             value={searchName}
@@ -88,7 +89,7 @@ const Category_login = () => {
         </div>
         <button
           type="submit"
-          className="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="p-2.5 ml-2 text-sm font-medium text-white bg-t_background1 rounded-lg border border-t_background1 hover:bg-t_background1 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-t_background1 dark:hover:bg-t_background1 dark:focus:ring-t_background1"
         >
           <svg
             className="w-4 h-4"
@@ -111,7 +112,7 @@ const Category_login = () => {
         <div className="hidden lg:block">
           <select
             id="category-select"
-            className="ml-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="ml-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-t_background1 focus:border-t_background1 block w-full p-2.5 dark:bg-t_background1 dark:border-t_background1 dark:placeholder-gray-400 dark:text-white dark:focus:ring-t_background1 dark:focus:border-t_background1"
             value={selectedCategory}
             onChange={handleCategoryChange}
           >

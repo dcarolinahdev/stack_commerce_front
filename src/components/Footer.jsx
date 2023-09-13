@@ -6,7 +6,7 @@ import logo from "/assets/logo.ico";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col mt-[15%]  justify-center px-12 py-10 gap-6 bg-gradient-to-r from-t_background1 via-purple-500 to-t_background3 text-t_main">
+    <footer className="flex flex-col mt-[1%]   justify-center px-12 py-10 gap-6 bg-gradient-to-r from-t_background1  to-t_background3 text-t_main">
       <div className="flex items-center justify-between">
         <span className="text-xl md:text-2xl font-medium">Contact us</span>
 
