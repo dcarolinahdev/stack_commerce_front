@@ -47,7 +47,7 @@ export default function Navbar() {
       setOptions([
         { to: "/", title: "Home" },
         { to: "/category_login", title: "Products" },
-        { to: "/cart/1", title: "Cart" },
+        // { to: "/cart/1", title: "Cart" },
       ]);
     } else if (user?.role === 2) {
       setOptions([
@@ -79,7 +79,7 @@ export default function Navbar() {
               className="h-8 mr-3 rounded-full bg-white"
               alt="Flowbite Logo "
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-2xl font-extrabold whitespace-nowrap dark:text-white">
               {" "}
               StackCommerce
             </span>
@@ -99,7 +99,7 @@ export default function Navbar() {
                  data-dropdown-placement="bottom"
                >
                  <img
-                   className="w-8 h-8 rounded-full "
+                   className="w-8 h-8 rounded-full object-cover "
                    src={photo}
                    alt="user photo"
                  />
