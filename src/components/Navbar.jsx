@@ -72,8 +72,9 @@ export default function Navbar() {
   return (
     <>
       <nav className="bg-gradient-to-r from-t_background1 to-t_background3 text-white">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a className="flex items-center">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-6">
+          <a className="flex items-center"
+             href="/">
             <img
               src="/assets/logo.ico"
               className="h-8 mr-3 rounded-full bg-white"
@@ -81,7 +82,7 @@ export default function Navbar() {
             />
             <span className="self-center text-2xl font-extrabold whitespace-nowrap dark:text-white">
               {" "}
-              StackCommerce
+              Stack-Commerce
             </span>
           </a>
           <div className="flex items-center md:order-2">
