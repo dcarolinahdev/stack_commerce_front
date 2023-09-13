@@ -1,12 +1,8 @@
-import { BiLogoFacebook, BiLogoInstagramAlt } from "react-icons/bi";
-import { RiWhatsappFill } from "react-icons/ri";
-import { HiMail } from "react-icons/hi";
-import { Link as Anchor } from "react-router-dom";
 import logo from "/assets/logo.ico";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col mt-[1%]   justify-center px-12 py-10 gap-6">
+<footer className="flex flex-col mt-[1%]   justify-center px-12 py-10 gap-6">
       <div className="bottom-0   hidden xl:block overflow-x-hidden    ">
           <img
             src="/assets/footer.png"
