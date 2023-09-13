@@ -1,7 +1,7 @@
 import React from "react";
-import banner1 from "/assets/banner1.png";
-import banner2 from "/assets/banner2.png";
-import banner3 from "/assets/banner3.png";
+import banner1 from "/assets/bannerr1.jpeg";
+import banner2 from "/assets/bannerr2.jpeg";
+import banner3 from "/assets/bannerr3.png";
 
 const Carou = () => {
   return (
