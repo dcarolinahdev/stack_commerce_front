@@ -34,7 +34,7 @@ const SignIn = () => {
         });
 
         setTimeout(() => {
-          window.location.replace("/home");
+          window.location.replace("/");
         }, 1500);
       }
     } catch (error) {
