@@ -3,12 +3,11 @@ import CardProducts from "./CardProducts";
 import apiUrl from "../api/ApiUrl";
 import headers from "../api/headers";
 import axios from "axios";
-
+import Swal from "sweetalert2";
 
 const Category_login = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [products, setProducts] = useState([]);
-  // console.log(products);
   const [searchName, setSearchName] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Category");
 
@@ -17,10 +16,13 @@ const Category_login = () => {
       axios.get(apiUrl + "/products", headers()).then((res) => {
         setAllProducts(res.data.response);
         setProducts(res.data.response);
-        // console.log("allProducts:", res.data.response);
       });
     } catch (err) {
-      console.error(err);
+      Swal.fire({
+        icon: "error",
+        title: "Internal Error",
+        text: "Try later..",
+      });
     }
   }, []);
 
@@ -46,8 +48,6 @@ const Category_login = () => {
           .includes(searchName.toLowerCase());
         const categoryMatches =
           category === "Category" || element.category_id === category;
-          // console.log(category);
-          // console.log(element.category_id);
         return nameMatches && categoryMatches;
       });
       setProducts(filteredProducts);
@@ -121,7 +121,9 @@ const Category_login = () => {
               Computers and Accessories
             </option>
             <option value="64f21b6196ee35726908b911">Gadget Innovadores</option>
-            <option value="64f21b6196ee35726908b910">Smart home appliances</option>
+            <option value="64f21b6196ee35726908b910">
+              Smart home appliances
+            </option>
             <option value="64f21b6196ee35726908b90e">
               Smartphones and Accessories
             </option>
@@ -134,27 +136,27 @@ const Category_login = () => {
       </form>
       {products.length === 0 && (
         <p className="text-center text-red-500 font-semibold my-8 mt-[100px] text-[25px] ">
-        <svg
-          className="mx-auto h-16 w-16 text-red-500  "
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-          ></path>
-        </svg>
-        <br />
-        We're sorry!
-        <br />
-        No results found for the search.
-        <br />
-        Please try another search term.
-      </p>
+          <svg
+            className="mx-auto h-16 w-16 text-red-500  "
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+            ></path>
+          </svg>
+          <br />
+          We're sorry!
+          <br />
+          No results found for the search.
+          <br />
+          Please try another search term.
+        </p>
       )}
       <div className="xl:grid gap-x-8 gap-y-4 grid-cols-3 mx-10">
         {products.map((each) => (
