@@ -1,4 +1,3 @@
-import products from "../assets/products.json";
 import CategoryList from "./CategoryList";
 import ProductCard from "./ProductCard";
 
@@ -43,7 +42,7 @@ export default function ProductList() {
         </div>
       </div>
 
-      <div className="container-fluid mx-auto">
+      {/* <div className="container-fluid mx-auto">
         <div className="flex flex-wrap py-2">
 
           <div className="w-full md:w-[20%] px-2">
@@ -61,7 +60,7 @@ export default function ProductList() {
           </div>
 
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
