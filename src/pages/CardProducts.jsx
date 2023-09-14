@@ -29,8 +29,9 @@ const CardProducts = ({ name, image, description, price, stock, id }) => {
           allowOutsideClick: false,
           showDenyButton: true,
           confirmButtonText: "Done",
+          confirmButtonColor: "#43C6AC",
           denyButtonText: `Go to Cart`,
-          denyButtonColor: "#43C6AC",
+          denyButtonColor: "#F98080",
         }).then((result) => {
           if (!result.isConfirmed) {
             window.location.href = "/cart/1";

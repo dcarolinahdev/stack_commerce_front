@@ -41,6 +41,7 @@ const SignIn = () => {
       Swal.fire({
         icon: "info",
         text: "¡Sign In Failed!",
+        confirmButtonColor: "#F98080",
         html: error.response.data.messages
           .map((each) => `<p>${each}</p>`)
           .join(""),

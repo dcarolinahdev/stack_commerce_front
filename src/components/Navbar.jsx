@@ -18,7 +18,7 @@ export default function Navbar() {
         cancelButtonText: "Cancel",
         didOpen: () => {
           const confirmButton = document.querySelector(".swal2-confirm");
-          confirmButton.style.backgroundColor = "#2573F0";
+          confirmButton.style.backgroundColor = "#43C6AC";
           confirmButton.style.color = "white";
         },
       });
