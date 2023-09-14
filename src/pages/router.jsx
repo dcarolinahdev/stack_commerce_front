@@ -59,7 +59,7 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/category_login",
+        path: "/products",
         element: <Category_login />,
         loader: (async) => {
           let user = JSON.parse(localStorage.getItem("user"));
