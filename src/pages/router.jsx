@@ -8,6 +8,7 @@ import Cart from "./Cart";
 import Category from "./Category";
 import Admin from "./Admin";
 import Category_login from "./Category_login";
+import ProductDetail from "./ProductDetail";
 import user from "../api/headers.js";
 
 const router = createBrowserRouter([
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
           let user = JSON.parse(localStorage.getItem("user"));
           return !user && redirect("/not-allowed");
         },
+      },
+      {
+        path: "/products/:id",
+        element: <ProductDetail />
       },
       { path: "/not-allowed", element: <NotAllowed /> },
     ],
