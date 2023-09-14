@@ -9,8 +9,6 @@ import Swal from "sweetalert2";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
-  const [quantityInput, setquantityInput] = useState(1);
-
   let totalCart = 0;
 
   let removeProduct = (id) => {
@@ -40,6 +38,23 @@ const Cart = () => {
       .then(() => {
         axios.get(apiUrl + "/cart", headers()).then((response) => {
           setCart(response.data.response);
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  let buyCart = () => {
+    axios
+      .put(apiUrl + "/cart", {}, headers())
+      .then((res) => {
+        setCart([]);
+        Swal.fire({
+          icon: "success",
+          title: `${res.data.message}`,
+          text: `Purchase completed`,
+          timer: 4000
         });
       })
       .catch((err) => {
@@ -120,7 +135,7 @@ const Cart = () => {
           <div className="py-2 px-4 mx-auto max-w-screen-xl  text-center lg:py-16 z-10 relative">
             <h1 className="mb-4 text-4xl text-t_background1 font-extrabold tracking-wider leading-none md:text-5xl lg:text-6xl">
               <div className="flex justify-center items-center mx-auto">
-                <img src="/assets/logo23.png"  />
+                <img src="/assets/logo23.png" />
                 Shopping Cart
               </div>
               <p className="my-7 text-lg tracking-wider text-gray-500 font-normal lg:text-xl sm:px-16 lg:px-48">
@@ -187,7 +202,7 @@ const Cart = () => {
 
                             <div c>
                               <input
-                                defaultValue={quantityInput}
+                                defaultValue={1}
                                 value={each.quantity}
                                 type="number"
                                 id="first_product"
@@ -260,7 +275,7 @@ const Cart = () => {
                         Empty Cart
                       </button>
                       <button
-                        onClick={() => removeCart()}
+                        onClick={() => buyCart()}
                         type="button"
                         className="text-white cursor-pointer transition-transform transform hover:scale-105 bg-gradient-to-r bg-t_background1 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                       >

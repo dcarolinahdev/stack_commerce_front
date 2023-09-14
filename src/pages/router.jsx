@@ -10,6 +10,7 @@ import Admin from "./Admin";
 import Category_login from "./Category_login";
 import ProductDetail from "./ProductDetail";
 import user from "../api/headers.js";
+import OrdersAdmin from "./OrdersAdmin";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,16 @@ const router = createBrowserRouter([
           return (!user || user.role === 1) && redirect("/not-allowed");
         },
       },
+
+      {
+        path: "/admin/orders",
+        element: <OrdersAdmin />,
+        loader: (async) => {
+          let user = JSON.parse(localStorage.getItem("user"));
+          return (!user || user.role === 1) && redirect("/not-allowed");
+        },
+      },
+
       {
         path: "/products",
         element: <Category_login />,

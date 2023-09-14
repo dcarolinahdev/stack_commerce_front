@@ -61,7 +61,7 @@ const SignIn = () => {
               />
             </div>
             <input
-              className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] p-2 my-[8px] text-[12px] hover:border-t_background1 rounded-lg border-2 border-[#1F1F1F]"
+              className="transition-transform transform hover:scale-105 w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] p-2 my-[8px] text-[12px] hover:border-t_background1 rounded-lg border-2 border-[#1F1F1F]"
               type="email"
               name="email"
               id="email"
@@ -69,7 +69,7 @@ const SignIn = () => {
               ref={email}
             />
             <input
-              className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px]  p-2 my-[8px] text-[12px] hover:border-t_background1 rounded-lg border-2 border-[#1F1F1F]"
+              className="transition-transform transform hover:scale-105 w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px]  p-2 my-[8px] text-[12px] hover:border-t_background1 rounded-lg border-2 border-[#1F1F1F]"
               type="password"
               name="password"
               id="password"
