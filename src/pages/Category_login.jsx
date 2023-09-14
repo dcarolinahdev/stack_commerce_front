@@ -11,7 +11,7 @@ const Category_login = () => {
   // console.log(products);
   const [searchName, setSearchName] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Category");
-  
+
   useEffect(() => {
     try {
       axios.get(apiUrl + "/products", headers()).then((res) => {

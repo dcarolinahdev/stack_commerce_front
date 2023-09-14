@@ -46,7 +46,7 @@ export default function Navbar() {
     if (user?.role === 1) {
       setOptions([
         { to: "/", title: "Home" },
-        { to: "/category_login", title: "Products" },
+        { to: "/products", title: "Products" },
         // { to: "/cart/1", title: "Cart" },
       ]);
     } else if (user?.role === 2) {
