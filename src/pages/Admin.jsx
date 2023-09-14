@@ -1,6 +1,81 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import headers from "../api/headers";
+import apiUrl from "../api/ApiUrl";
+import { RxReload } from "react-icons/rx";
+import Swal from "sweetalert2";
+import { Link as Anchor } from "react-router-dom";
 
 const Admin = () => {
+  const [order, setOrder] = useState([]);
+
+  let totalSold = 0;
+  let totalPending = 0;
+  let totalCompleted = 0;
+  let usuarioTotal = 0;
+  let usuarioTotalArray = [];
+  let totalUser = 0;
+
+  try {
+    useEffect(() => {
+      axios
+        .get(apiUrl + "/dashboard/cart", headers())
+        .then((response) => {
+          setOrder(response.data.response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, []);
+
+    let data = order
+      .filter((e) => e.state_id.state === 1)
+      .reduce((accumulator, each) => {
+        const usuario = each.user_id;
+        const productTotal = each.product_id?.price * each.quantity;
+
+        if (!accumulator[usuario._id]) {
+          accumulator[usuario._id] = {
+            createdAt: each.createdAt,
+            state_id: each.state_id,
+            user_id: usuario,
+            total: 0,
+          };
+        }
+
+        accumulator[usuario._id].total += productTotal || 0;
+        return accumulator;
+      }, {});
+
+    usuarioTotalArray = Object.values(data);
+
+    console.log(usuarioTotalArray);
+    totalCompleted = order
+      .filter((e) => e.state_id.state === 1)
+      .reduce((accumulator, each) => {
+        const productTotal = each.product_id?.price * each.quantity;
+        return accumulator + (productTotal || 0);
+      }, 0);
+
+    totalSold = order
+      .filter((e) => e.state_id.state === 2)
+      .reduce((accumulator, each) => {
+        const productTotal = each.product_id?.price * each.quantity;
+        return accumulator + (productTotal || 0);
+      }, 0);
+
+    const uniqueUserIds = new Set();
+
+    order.forEach((user) => {
+      uniqueUserIds.add(user.user_id._id);
+    });
+
+    totalUser = uniqueUserIds.size;
+    totalPending = usuarioTotalArray.length;
+  } catch (error) {
+    console.error(error);
+  }
+
   return (
     <>
       <div>
@@ -34,10 +109,7 @@ const Admin = () => {
                   </a>
                 </li>
                 <li className="transition-transform transform hover:scale-105">
-                  <a
-                    href="#"
-                    className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                  >
+                  <a className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg
                       className="flex-shrink-0 w-5 h-5 text-t_background1 transition duration-75 dark:text-gray-400  dark:group-hover:text-white"
                       aria-hidden="true"
@@ -48,35 +120,12 @@ const Admin = () => {
                       <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
                     </svg>
                     <span className="flex-1 ml-3 whitespace-nowrap text-t_background1">
-                      Orders
+                      <Anchor to={"/admin/orders"}>Orders</Anchor>
                     </span>
-                    <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-t_background1 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                      Pro
-                    </span>
+                  
                   </a>
                 </li>
-                <li className="transition-transform transform hover:scale-105">
-                  <a
-                    href="#"
-                    className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                  >
-                    <svg
-                      className="flex-shrink-0 w-5 h-5 text-t_background1 transition duration-75 dark:text-gray-400   dark:group-hover:text-white"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
-                    </svg>
-                    <span className="flex-1 ml-3 whitespace-nowrap text-t_background1">
-                      Sales
-                    </span>
-                    <span className="inline-flex items-center text-t_background1 justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                      3
-                    </span>
-                  </a>
-                </li>
+
                 <li className="transition-transform transform hover:scale-105">
                   <a
                     href="#"
@@ -132,24 +181,34 @@ const Admin = () => {
             <p>
               <div className="container mx-auto mt-8 p-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4  text-white">
-                  <div className="bg-red-500 shadow-xl p-4 rounded cursor-pointer transition-transform transform hover:scale-105 ">
+                  <div className="bg-violet-500 p-4 rounded shadow-xl cursor-pointer transition-transform transform hover:scale-105">
+                    <h2 className="text-xl font-semibold">Users</h2>
+                    <p className="text-3xl font-bold mt-2">{totalUser}</p>
+                  </div>
+
+                  <div className="bg-red-400 shadow-xl p-4 rounded cursor-pointer transition-transform transform hover:scale-105 ">
                     <h2 className="text-xl font-semibold">Pending Orders</h2>
-                    <p className="text-3xl font-bold mt-2">25</p>
+                    <p className="text-3xl font-bold mt-2">{totalPending}</p>
                   </div>
 
                   <div className="bg-t_background1 p-4 rounded shadow-xl cursor-pointer transition-transform transform hover:scale-105">
-                    <h2 className="text-xl font-semibold">Completed Orders</h2>
-                    <p className="text-3xl font-bold mt-2">50</p>
-                  </div>
-
-                  <div className="bg-violet-500 p-4 rounded shadow-xl cursor-pointer transition-transform transform hover:scale-105">
-                    <h2 className="text-xl font-semibold">Users</h2>
-                    <p className="text-3xl font-bold mt-2">1000</p>
+                    <h2 className="text-xl font-semibold">Pending Income</h2>
+                    <p className="text-3xl font-bold mt-2">
+                      ${totalCompleted.toFixed(2)}
+                    </p>
                   </div>
 
                   <div className="bg-teal-500 p-4 rounded shadow-xl cursor-pointer transition-transform transform hover:scale-105">
                     <h2 className="text-xl font-semibold">Total Sold</h2>
-                    <p className="text-3xl font-bold mt-2">$10,000</p>
+
+                    <div className="flex justify-between">
+                      <p className="text-3xl font-bold mt-2">
+                        ${totalSold.toFixed(2)}
+                      </p>
+                      <button className="text-3xl text-t_background1">
+                        <RxReload className="bg-white rounded-full"></RxReload>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -161,121 +220,97 @@ const Admin = () => {
                         <th className="px-4 py-2">Order</th>
                         <th className="px-4 py-2">Date</th>
                         <th className="px-4 py-2">Customer</th>
+                        <th className="px-4 py-2">Email</th>
+                        <th className="px-4 py-2">Adress</th>
+                        <th className="px-4 py-2">Phone</th>
                         <th className="px-4 py-2">Total</th>
                         <th className="px-4 py-2">Status</th>
                         <th className="px-4 py-2">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="text-center">
-                        <td className="border px-4 py-2">1</td>
-                        <td className="border px-4 py-2">2023-09-12</td>
-                        <td className="border px-4 py-2">John Doe</td>
-                        <td className="border px-4 py-2">$100</td>
-                        <td className="border px-4 py-2">
-                          <span className="px-2 py-1 rounded bg-red-500 text-white">
-                            Pending
-                          </span>
-                        </td>
-                        <td className="border px-4 py-2">
-                          <a
-                            href="#"
-                            className="text-blue-500 hover:text-blue-700 mr-2"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              className="w-5 h-5"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                              />
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M15 5a6 6 0 00-6 6v2a6 6 0 006 6 6 6 0 006-6v-2a6 6 0 00-6-6z"
-                              />
-                            </svg>
-                          </a>
-                          <a
-                            href="#"
-                            className="text-red-400 hover:text-red-700"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              className="w-5 h-5"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M6 18L18 6M6 6l12 12"
-                              />
-                            </svg>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr className="text-center">
-                        <td className="border px-4 py-2">2</td>
-                        <td className="border px-4 py-2">2023-09-13</td>
-                        <td className="border px-4 py-2">Jane Smith</td>
-                        <td className="border px-4 py-2">$75</td>
-                        <td className="border px-4 py-2">
-                          <span className="px-2 py-1 rounded bg-t_background1 text-white">
-                            Completed
-                          </span>
-                        </td>
-                        <td className="border px-4 py-2">
-                          <a
-                            href="#"
-                            className="text-blue-500 hover:text-blue-700 mr-2"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 20 20"
-                              stroke="currentColor"
-                              className="w-5 h-5"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M4.293 8.293a1 1 0 0 1 1.414 0L10 12.586l4.293-4.293a1 1 0 1 1 1.414 1.414l-5 5a1 1 0 0 1-1.414 0l-5-5a1 1 0 0 1 0-1.414z"
-                                clipRule="evenodd"
-                              ></path>
-                            </svg>
-                          </a>
-                          <a
-                            href="#"
-                            className="text-red-500 hover:text-red-700"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 20 20"
-                              stroke="currentColor"
-                              className="w-5 h-5"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M5.293 6.293a1 1 0 0 1 1.414 0L10 10.586l3.293-3.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414z"
-                                clipRule="evenodd"
-                              ></path>
-                            </svg>
-                          </a>
-                        </td>
-                      </tr>
+                      <>
+                        {usuarioTotalArray.map((each, index) =>
+                          each.state_id.state === 1 ? (
+                            <tr className="text-center">
+                              <td className="border px-4 py-2">{index + 1}</td>
+                              <td className="border px-4 py-2">
+                                {each.createdAt}
+                              </td>
+                              <td className="border px-4 py-2">
+                                {each.user_id.name}
+                              </td>
+                              <td className="border px-4 py-2">
+                                {each.user_id.email}
+                              </td>
+                              <td className="border px-4 py-2">
+                                {each.user_id.address}
+                              </td>
+                              <td className="border px-4 py-2">
+                                +57 {each.user_id.phone}
+                              </td>
+
+                              <td className="border px-4 py-2">{each.total}</td>
+                              <td className="border px-4 py-2">
+                                <span className="px-2 py-1 rounded bg-red-400 text-white">
+                                  Pending
+                                </span>
+                              </td>
+
+                              <td className="border px-4 py-2">
+                                <a
+                                  href="#"
+                                  className="text-t_background1 text-2xl mr-2"
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    className="w-5 h-5"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth="2"
+                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                    />
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth="2"
+                                      d="M15 5a6 6 0 00-6 6v2a6 6 0 006 6 6 6 0 006-6v-2a6 6 0 00-6-6z"
+                                    />
+                                  </svg>
+                                </a>
+                                <a
+                                  href="#"
+                                  className="text-red-400 hover:text-red-700"
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    className="w-5 h-5"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth="2"
+                                      d="M6 18L18 6M6 6l12 12"
+                                    />
+                                  </svg>
+                                </a>
+                              </td>
+                            </tr>
+                          ) : (
+                            ""
+                          )
+                        )}
+                      </>
                     </tbody>
                   </table>
-                    
                 </div>
               </div>
             </p>
