@@ -49,10 +49,10 @@ const SignIn = () => {
   };
 
   return (
-    <main className="bg-cover bg-center bg-no-repeat h-screen bg-[url('/assets/signIn.png')] ">
+    <main className="bg-cover bg-center bg-no-repeat h-screen bg-white md:bg-[url('/assets/signIn.png')] ">
       <div className=" md:flex object-cover bg-no-repeat w-screen">
-        <div className="flex flex-col items-center justify-center gap-2 h-screen w-screen md:w-[50%]">
-          <form className="flex flex-col justify-center bg-white border-2 rounded-lg p-4 h-[70%] md:h-[55%]">
+        <div className="flex flex-col items-center justify-center bg-white gap-2 h-screen w-screen md:w-[50%]">
+          <form className="flex flex-col items-center justify-center md:w-96 p-4 h-[70%] md:h-[50%]">
             <div className="flex justify-center">
               <img
                 src="/assets/logo23.png"
@@ -61,7 +61,7 @@ const SignIn = () => {
               />
             </div>
             <input
-              className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[40px] p-2 my-[8px] text-[12px] hover:border-t_background1 rounded-lg border-2 border-[#1F1F1F]"
+              className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] p-2 my-[8px] text-[12px] hover:border-t_background1 rounded-lg border-2 border-[#1F1F1F]"
               type="email"
               name="email"
               id="email"
@@ -69,7 +69,7 @@ const SignIn = () => {
               ref={email}
             />
             <input
-              className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[40px] p-2 my-[8px] text-[12px] hover:border-t_background1 rounded-lg border-2 border-[#1F1F1F]"
+              className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px]  p-2 my-[8px] text-[12px] hover:border-t_background1 rounded-lg border-2 border-[#1F1F1F]"
               type="password"
               name="password"
               id="password"

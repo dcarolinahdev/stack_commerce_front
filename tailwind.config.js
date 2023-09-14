@@ -16,8 +16,6 @@ module.exports = {
         t_btn_text: "#7F5AF0",
         t_tertiary: "#2CB67D",
       },
-
-      
     },
   },
   variants: {},
