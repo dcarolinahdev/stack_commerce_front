@@ -49,13 +49,15 @@ const CardProducts = ({ name, image, description, price, stock, id }) => {
   return (
     <>
       <div className="flex flex-col select-none items-center transition-transform transform hover:scale-105 cursor-pointer shadow-lg bg-white border  rounded-lg md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <div>
-          <img
-            className="p-4 object-fit h-[250px] rounded-t-lg md:w-48 md:rounded-none md:rounded-l-lg"
-            src={image}
-            alt={name}
-          />
-        </div>
+        <Anchor to={"/products/" + id + "/"}>
+          <div>
+            <img
+              className="p-4 object-fit h-[250px] rounded-t-lg md:w-48 md:rounded-none md:rounded-l-lg"
+              src={image}
+              alt={name}
+            />
+          </div>
+        </Anchor>
         <div className="flex flex-col justify-between p-4 leading-normal">
           <h5 className="mb-2 text-2xl text-center font-bold tracking-tight text-gray-500 dark:text-white">
             {name}
