@@ -24,8 +24,8 @@ export default function ProductDetail() {
         <div className="min-h-screen flex items-center justify-center bg-slate-100">
 
             <div className="w-4/5 flex flex-col items-center bg-white shadow-lg">
-                <h1 className="text-3xl font-bold text-teal-600 my-4">{product?.name}</h1>
-                <div className="flex flex-wrap">
+                <h1 className="text-3xl font-bold text-teal-600 pt-8 pb-1">{product?.name}</h1>
+                <div className="flex flex-wrap pb-6">
                     <div className="w-full md:w-1/2">
                         <img className="object-cover" src={product?.image} alt="" />
                     </div>
