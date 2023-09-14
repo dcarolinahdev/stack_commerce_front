@@ -4,6 +4,7 @@ import CardProducts from "./CardProducts";
 import apiUrl from "../api/ApiUrl";
 import headers from "../api/headers";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Category = () => {
   const [products, setProducts] = useState([]);
@@ -13,7 +14,11 @@ const Category = () => {
         setProducts(res.data.response);
       });
     } catch (err) {
-      console.error(err);
+      Swal.fire({
+        icon: "error",
+        title: "Internal Error",
+        text: "Try later..",
+      });
     }
   }, []);
 

@@ -38,7 +38,11 @@ const CardProducts = ({ name, image, description, price, stock, id }) => {
         });
       }
     } catch (error) {
-      console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Internal Error",
+        text: "Try later..",
+      });
     }
   };
 
